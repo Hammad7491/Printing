@@ -9,3 +9,5 @@ Route::get('/', [PagesController::class, 'indexes'])
 
 
 
+Route::get('/villa', [PagesController::class, 'villa'])
+         ->name('villa');

@@ -20,7 +20,10 @@ public function indexes()
 }
 
 
-
+public function villa()
+{
+    return view('villa');
+}
 
 
 

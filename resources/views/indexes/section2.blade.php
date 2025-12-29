@@ -21,13 +21,13 @@
                 </div>
                 <div class="gx-cat-body">
                     <h3 class="gx-cat-title">Flags Sign</h3>
-                    <button class="gx-cat-link" type="button" aria-label="Open Flags Sign">
+                    <a class="gx-cat-link" href="#" aria-label="Open Flags Sign">
                         visit page of this item <span class="gx-chev" aria-hidden="true"></span>
-                    </button>
+                    </a>
                 </div>
             </article>
 
-            {{-- Card 2 --}}
+            {{-- Card 2 (Villa link added) --}}
             <article class="gx-cat">
                 <div class="gx-cat-media">
                     <img class="gx-cat-img" src="{{ asset('assets/images/Villa sign/Villa1.jpg') }}" alt="Villa Sign" loading="lazy">
@@ -35,9 +35,9 @@
                 </div>
                 <div class="gx-cat-body">
                     <h3 class="gx-cat-title">Villa Sign</h3>
-                    <button class="gx-cat-link" type="button" aria-label="Open Villa Sign">
+                    <a class="gx-cat-link" href="{{ route('villa') }}" aria-label="Open Villa Sign">
                         visit page of this item <span class="gx-chev" aria-hidden="true"></span>
-                    </button>
+                    </a>
                 </div>
             </article>
 
@@ -49,9 +49,9 @@
                 </div>
                 <div class="gx-cat-body">
                     <h3 class="gx-cat-title">Neon Sign</h3>
-                    <button class="gx-cat-link" type="button" aria-label="Open Neon Sign">
+                    <a class="gx-cat-link" href="#" aria-label="Open Neon Sign">
                         visit page of this item <span class="gx-chev" aria-hidden="true"></span>
-                    </button>
+                    </a>
                 </div>
             </article>
 
@@ -63,9 +63,9 @@
                 </div>
                 <div class="gx-cat-body">
                     <h3 class="gx-cat-title">Name &amp; Board Sign</h3>
-                    <button class="gx-cat-link" type="button" aria-label="Open Name & Board Sign">
+                    <a class="gx-cat-link" href="#" aria-label="Open Name & Board Sign">
                         visit page of this item <span class="gx-chev" aria-hidden="true"></span>
-                    </button>
+                    </a>
                 </div>
             </article>
 
@@ -77,9 +77,9 @@
                 </div>
                 <div class="gx-cat-body">
                     <h3 class="gx-cat-title">Labels</h3>
-                    <button class="gx-cat-link" type="button" aria-label="Open Labels">
+                    <a class="gx-cat-link" href="#" aria-label="Open Labels">
                         visit page of this item <span class="gx-chev" aria-hidden="true"></span>
-                    </button>
+                    </a>
                 </div>
             </article>
 
@@ -91,9 +91,9 @@
                 </div>
                 <div class="gx-cat-body">
                     <h3 class="gx-cat-title">Print &amp; Cut Stickers</h3>
-                    <button class="gx-cat-link" type="button" aria-label="Open Print & Cut Stickers">
+                    <a class="gx-cat-link" href="#" aria-label="Open Print & Cut Stickers">
                         visit page of this item <span class="gx-chev" aria-hidden="true"></span>
-                    </button>
+                    </a>
                 </div>
             </article>
         </div>
@@ -158,7 +158,7 @@
     transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
     display:flex;
     flex-direction:column;
-    min-height: 340px; /* a bit taller */
+    min-height: 340px;
 }
 .gx-cat:hover{
     transform: translateY(-3px);
@@ -166,10 +166,10 @@
     box-shadow: 0 28px 70px rgba(2,6,23,.12);
 }
 
-/* Image area (taller) */
+/* Image area */
 .gx-cat-media{
     position: relative;
-    height: 240px; /* increased height */
+    height: 240px;
     background: rgba(15,23,42,.04);
     overflow:hidden;
 }
@@ -225,7 +225,11 @@
     align-items:center;
     gap: 8px;
     width: fit-content;
+
+    text-decoration: none;
 }
+.gx-cat-link:hover{ color: rgba(15,23,42,.92); }
+
 .gx-chev{
     width: 18px; height: 18px;
     border-radius: 999px;
@@ -252,16 +256,15 @@
     .gx-cat-media{ height: 230px; }
 }
 
-/* Small mobile: keep 2 per row (as you asked) */
+/* Small mobile: keep 2 per row */
 @media (max-width: 520px){
     .gx-cats-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .gx-cat{ min-height: 300px; }
     .gx-cat-media{ height: 200px; }
-
     .gx-cat-title{ font-size: 14px; }
 }
 
-/* Very small phones: 1 per row (optional safety) */
+/* Very small phones: 1 per row */
 @media (max-width: 360px){
     .gx-cats-grid{ grid-template-columns: 1fr; }
 }

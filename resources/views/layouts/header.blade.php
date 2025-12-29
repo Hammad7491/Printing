@@ -3,21 +3,40 @@
     <div class="gx-container">
         <div class="gx-bar">
             {{-- Left: Logo --}}
-            <div class="gx-logo" aria-label="Genix">
+            <a href="{{ route('indexes') }}" class="gx-logo" aria-label="Genix Home">
                 <span class="gx-logo-mark" aria-hidden="true">G</span>
                 <span class="gx-logo-text">
                     <span class="gx-logo-name">Genix</span>
                     <span class="gx-logo-tag">printing</span>
                 </span>
-            </div>
+            </a>
 
             {{-- Center: Desktop Nav --}}
             <nav class="gx-nav" aria-label="Primary navigation">
-                <button class="gx-navlink is-active" type="button">Home</button>
-                <button class="gx-navlink" type="button">Products</button>
-                <button class="gx-navlink" type="button">Services</button>
-                <button class="gx-navlink" type="button">About</button>
-                <button class="gx-navlink" type="button">Contact Us</button>
+                <a href="{{ route('indexes') }}"
+                   class="gx-navlink {{ request()->routeIs('indexes') ? 'is-active' : '' }}">
+                    Home
+                </a>
+
+                <a href=""
+                   class="gx-navlink {{ request()->routeIs('products*') ? 'is-active' : '' }}">
+                    Products
+                </a>
+
+                <a href=""
+                   class="gx-navlink {{ request()->routeIs('services*') ? 'is-active' : '' }}">
+                    Services
+                </a>
+
+                <a href=""
+                   class="gx-navlink {{ request()->routeIs('about') ? 'is-active' : '' }}">
+                    About
+                </a>
+
+                <a href=""
+                   class="gx-navlink {{ request()->routeIs('contact') ? 'is-active' : '' }}">
+                    Contact Us
+                </a>
             </nav>
 
             {{-- Right: Search input with icon (desktop) + Mobile toggle --}}
@@ -80,33 +99,35 @@
             </form>
 
             <nav class="gx-mobile-nav" aria-label="Mobile navigation">
-                <button type="button">Home</button>
-                <button type="button">Products</button>
-                <button type="button">Services</button>
-                <button type="button">About</button>
-                <button type="button">Contact Us</button>
+                <a href="{{ route('indexes') }}" class="{{ request()->routeIs('indexes') ? 'is-active' : '' }}">Home</a>
+                <a href="" class="{{ request()->routeIs('products*') ? 'is-active' : '' }}">Products</a>
+                <a href="" class="{{ request()->routeIs('services*') ? 'is-active' : '' }}">Services</a>
+                <a href="" class="{{ request()->routeIs('about') ? 'is-active' : '' }}">About</a>
+                <a href="" class="{{ request()->routeIs('contact') ? 'is-active' : '' }}">Contact Us</a>
             </nav>
         </div>
     </div>
 </header>
 
 <style>
-/* ===== Genix Header (Modern / Responsive) ===== */
+/* ===== Font (clean + modern) ===== */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
 :root{
+    --gx-font: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
     --gx-bg: rgba(255,255,255,.78);
-    --gx-bg-solid: #ffffff;
     --gx-text: #0f172a;
     --gx-muted: #64748b;
     --gx-border: rgba(15,23,42,.12);
-    --gx-shadow: 0 18px 55px rgba(2, 6, 23, .10);
-    --gx-accent: #e11d48;    /* rose */
-    --gx-accent2: #f59e0b;   /* amber */
-    --gx-radius: 18px;
+    --gx-accent: #e11d48;
+    --gx-accent2: #f59e0b;
     --gx-ring: 0 0 0 4px rgba(225,29,72,.14);
     --gx-max: 1180px;
 }
 
 *{ box-sizing:border-box; }
+.gx-header, .gx-header *{ font-family: var(--gx-font); }
+
 .sr-only{
     position:absolute!important;
     width:1px;height:1px;
@@ -150,6 +171,7 @@
     color: var(--gx-text);
     user-select:none;
     flex: 0 0 auto;
+    text-decoration:none;
 }
 .gx-logo-mark{
     width: 44px; height: 44px;
@@ -170,7 +192,7 @@
 .gx-logo-tag{
     margin-top: 3px;
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 800;
     color: var(--gx-muted);
     letter-spacing: .14em;
     text-transform: uppercase;
@@ -186,13 +208,14 @@
     min-width: 0;
 }
 .gx-navlink{
+    text-decoration:none;
     appearance:none;
     border: 0;
     background: transparent;
     cursor: pointer;
 
     color: rgba(15,23,42,.88);
-    font-weight: 900;
+    font-weight: 800;
     font-size: 13px;
     padding: 10px 14px;
     border-radius: 14px;
@@ -326,22 +349,27 @@
     width: 100%;
     max-width: none;
 }
+
+/* Mobile links */
 .gx-mobile-nav{
     display:grid;
     gap: 10px;
     margin-top: 12px;
 }
-.gx-mobile-nav button{
-    appearance:none;
+.gx-mobile-nav a{
+    text-decoration:none;
     border: 1px solid var(--gx-border);
     background: rgba(255,255,255,.85);
-    cursor:pointer;
-
-    text-align:left;
     color: var(--gx-text);
-    font-weight: 900;
+    font-weight: 850;
     padding: 12px 14px;
     border-radius: 16px;
+    transition: background .18s ease, transform .18s ease;
+}
+.gx-mobile-nav a:hover{ transform: translateY(-1px); background: rgba(225,29,72,.06); }
+.gx-mobile-nav a.is-active{
+    background: rgba(15,23,42,.06);
+    box-shadow: inset 0 0 0 1px rgba(15,23,42,.10);
 }
 
 /* ===== Responsive ===== */
@@ -354,7 +382,7 @@
     .gx-burger{ display:inline-block; }
 }
 @media (max-width: 640px){
-    .gx-search{ display:none; } /* mobile uses panel search */
+    .gx-search{ display:none; }
 }
 @media (max-width: 420px){
     .gx-logo-name{ font-size: 16px; }
@@ -415,8 +443,8 @@
     });
 
     panel.addEventListener('click', (e) => {
-        const btn = e.target.closest('.gx-mobile-nav button');
-        if (!btn) return;
+        const link = e.target.closest('.gx-mobile-nav a');
+        if (!link) return;
         setOpen(false);
     });
 })();
