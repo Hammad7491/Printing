@@ -258,7 +258,7 @@
     .gx-cat{ min-height: 300px; }
     .gx-cat-media{ height: 200px; }
 
-     }
+    .gx-cat-title{ font-size: 14px; }
 }
 
 /* Very small phones: 1 per row (optional safety) */
