@@ -96,10 +96,6 @@
                     </button>
                 </div>
             </article>
-
-            
-
-         
         </div>
     </div>
 </section>
@@ -148,7 +144,7 @@
 /* Grid */
 .gx-cats-grid{
     display:grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 per row (desktop) */
     gap: 14px;
 }
 
@@ -162,7 +158,7 @@
     transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
     display:flex;
     flex-direction:column;
-    min-height: 300px;
+    min-height: 340px; /* a bit taller */
 }
 .gx-cat:hover{
     transform: translateY(-3px);
@@ -170,10 +166,10 @@
     box-shadow: 0 28px 70px rgba(2,6,23,.12);
 }
 
-/* Image area */
+/* Image area (taller) */
 .gx-cat-media{
     position: relative;
-    height: 190px;
+    height: 240px; /* increased height */
     background: rgba(15,23,42,.04);
     overflow:hidden;
 }
@@ -248,17 +244,25 @@
     transform: translate(-55%, -55%) rotate(45deg);
 }
 
-/* Responsive */
-@media (max-width: 1100px){
-    .gx-cats-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-@media (max-width: 820px){
+/* Responsive: 2 per row on tablets + mobiles */
+@media (max-width: 900px){
     .gx-cats-head{ align-items:flex-start; flex-direction:column; }
     .gx-cats-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .gx-cat{ min-height: 290px; }
+    .gx-cat{ min-height: 330px; }
+    .gx-cat-media{ height: 230px; }
 }
+
+/* Small mobile: keep 2 per row (as you asked) */
 @media (max-width: 520px){
+    .gx-cats-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .gx-cat{ min-height: 300px; }
+    .gx-cat-media{ height: 200px; }
+
+    .gx-cat-title{ font-size: 14px; }
+}
+
+/* Very small phones: 1 per row (optional safety) */
+@media (max-width: 360px){
     .gx-cats-grid{ grid-template-columns: 1fr; }
-    .gx-cat-media{ height: 185px; }
 }
 </style>
