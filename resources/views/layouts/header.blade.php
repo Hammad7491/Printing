@@ -2,7 +2,7 @@
 <header class="gx-header" id="gxHeader">
     <div class="gx-container">
         <div class="gx-bar">
-            {{-- Left: Logo (your image) --}}
+            {{-- Left: Logo --}}
             <a href="{{ route('indexes') }}" class="gx-logo" aria-label="Genix Home">
                 <img
                     class="gx-logo-img"
@@ -67,8 +67,7 @@
     --gx-font: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
     --gx-bg: rgba(255,255,255,.78);
     --gx-text: #0f172a;
-    --gx-muted: #64748b;
-    --gx-border: rgba(15,23,42,.12);
+    --gx-border: rgba(15,23,42,.10);
     --gx-accent: #e11d48;
     --gx-accent2: #f59e0b;
     --gx-ring: 0 0 0 4px rgba(225,29,72,.14);
@@ -88,7 +87,7 @@
 .gx-container{
     max-width: var(--gx-max);
     margin: 0 auto;
-    padding: 14px 18px;
+    padding: 12px 18px; /* a bit tighter */
 }
 
 /* Header shell */
@@ -107,16 +106,14 @@
     display:grid;
     grid-template-columns: auto 1fr auto;
     align-items:center;
-    gap: 14px;
-
-    padding: 8px 0;
-    border-radius: 0;
+    gap: 12px;
+    padding: 6px 0;
     background: transparent;
     border: 0;
     box-shadow: none;
 }
 
-/* ✅ Logo bigger + balanced */
+/* Logo */
 .gx-logo{
     display:flex;
     align-items:center;
@@ -124,63 +121,65 @@
     user-select:none;
 }
 .gx-logo-img{
-    height: 64px;        /* ✅ bigger */
+    height: 62px;
     width: auto;
-    max-width: 260px;    /* ✅ prevent too wide */
+    max-width: 260px;
     display:block;
     object-fit: contain;
 }
 
-/* Search */
+/* Search (smaller + smarter) */
 .gx-search{
     margin: 0;
     width: 100%;
-    max-width: 420px;
+    max-width: 390px;            /* ✅ slightly narrower on desktop */
     justify-self: center;
 }
 .gx-search-wrap{
     display:flex;
     align-items:center;
-    gap: 10px;
+    gap: 8px;
 
-    padding: 8px 10px;
+    padding: 6px 8px;            /* ✅ smaller height */
     border-radius: 999px;
     background: rgba(255,255,255,.92);
-    border: 1px solid rgba(15,23,42,.10);
-    box-shadow: 0 10px 28px rgba(2,6,23,.06);
+    border: 1px solid var(--gx-border);
+    box-shadow: 0 10px 26px rgba(2,6,23,.06);
     transition: box-shadow .18s ease, border-color .18s ease, background .18s ease;
 }
 .gx-search-wrap:focus-within{
-    border-color: rgba(225,29,72,.30);
-    box-shadow: var(--gx-ring), 0 16px 40px rgba(2,6,23,.10);
+    border-color: rgba(225,29,72,.28);
+    box-shadow: var(--gx-ring), 0 14px 34px rgba(2,6,23,.10);
     background: rgba(255,255,255,.98);
 }
 .gx-search-input{
     flex: 1;
     border: 0;
     outline: none;
-    font-size: 14px;
+    font-size: 13.5px;           /* ✅ slightly smaller */
+    font-weight: 600;
     color: var(--gx-text);
     background: transparent;
-    padding: 6px 8px;
+    padding: 4px 6px;            /* ✅ smaller height */
+    min-width: 0;                /* prevents overflow in flex */
 }
-.gx-search-input::placeholder{ color: rgba(100,116,139,.9); }
+.gx-search-input::placeholder{ color: rgba(100,116,139,.90); }
 
 .gx-search-iconbtn{
     border: 0;
     cursor: pointer;
-    width: 40px;
-    height: 40px;
+    width: 34px;                 /* ✅ smaller button */
+    height: 34px;
     border-radius: 999px;
     color: #fff;
     display:grid;
     place-items:center;
     background: linear-gradient(135deg, var(--gx-accent) 0%, #fb7185 55%, var(--gx-accent2) 120%);
-    box-shadow: 0 14px 26px rgba(225,29,72,.18);
+    box-shadow: 0 12px 22px rgba(225,29,72,.18);
     transition: transform .18s ease, filter .18s ease;
 }
 .gx-search-iconbtn:hover{ transform: translateY(-1px); filter: brightness(1.03); }
-.gx-ico{ width: 18px; height: 18px; fill: currentColor; opacity: .95; }
+.gx-ico{ width: 16px; height: 16px; fill: currentColor; opacity: .95; }
 
 /* Reviews */
 .gx-reviews{
@@ -194,7 +193,7 @@
     white-space: nowrap;
 }
 .gx-review-avatar{
-    width: 38px; height: 38px;
+    width: 36px; height: 36px;
     border-radius: 999px;
     background:
         radial-gradient(120% 120% at 30% 20%, rgba(245,158,11,.35), transparent 55%),
@@ -203,10 +202,10 @@
 }
 .gx-review-meta{ display:flex; flex-direction:column; gap: 2px; }
 .gx-stars{ display:flex; gap: 2px; line-height: 1; }
-.gx-star{ font-size: 14px; color: rgba(245,158,11,.95); }
+.gx-star{ font-size: 13px; color: rgba(245,158,11,.95); }
 .gx-review-text{
     font-weight: 800;
-    font-size: 13px;
+    font-size: 12.5px;
     color: rgba(15,23,42,.72);
 }
 .gx-score{ color: var(--gx-text); }
@@ -215,9 +214,10 @@
 
 /* Responsive */
 @media (max-width: 980px){
-    .gx-search{ max-width: 360px; }
-    .gx-logo-img{ height: 58px; }
+    .gx-search{ max-width: 340px; }
+    .gx-logo-img{ height: 56px; }
 }
+
 @media (max-width: 740px){
     .gx-bar{
         grid-template-columns: 1fr auto;
@@ -225,16 +225,47 @@
             "logo reviews"
             "search search";
         row-gap: 10px;
-        padding: 8px 0;
+        padding: 6px 0;
     }
     .gx-logo{ grid-area: logo; }
     .gx-reviews{ grid-area: reviews; justify-self: end; }
-    .gx-search{ grid-area: search; max-width: none; justify-self: stretch; }
+
+    /* ✅ make search smaller in mobile mode */
+    .gx-search{
+        grid-area: search;
+        justify-self: center;     /* center it */
+        width: 100%;
+        max-width: 520px;         /* not crazy wide on tablets */
+    }
 }
+
 @media (max-width: 420px){
-    .gx-container{ padding: 12px 14px; }
-    .gx-logo-img{ height: 48px; max-width: 210px; }
-    .gx-search-iconbtn{ width: 38px; height: 38px; }
-    .gx-review-text{ font-size: 12.5px; }
+    .gx-container{ padding: 10px 14px; }
+
+    .gx-logo-img{
+        height: 46px;
+        max-width: 200px;
+    }
+
+    /* ✅ extra compact search for small phones */
+    .gx-search{ max-width: 360px; }
+    .gx-search-wrap{
+        padding: 5px 7px;
+        gap: 8px;
+        box-shadow: 0 10px 22px rgba(2,6,23,.06);
+    }
+    .gx-search-input{
+        font-size: 13px;
+        padding: 4px 6px;
+    }
+    .gx-search-iconbtn{
+        width: 32px;
+        height: 32px;
+    }
+    .gx-ico{ width: 15px; height: 15px; }
+
+    .gx-review-avatar{ width: 34px; height: 34px; }
+    .gx-review-text{ font-size: 12px; }
+    .gx-star{ font-size: 12.5px; }
 }
 </style>

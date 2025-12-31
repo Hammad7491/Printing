@@ -1,17 +1,17 @@
 {{-- resources/views/partials/hero.blade.php --}}
 @php
-    // ✅ Put your DIRECT banner links here (https://...)
+    // ✅ Local banners (public/assets/images/banner/)
     $banners = [
         [
-            'url' => 'https://picsum.photos/1600/520?random=11', // replace with your banner URL
+            'url' => asset('assets/images/banner/banner.png'),
             'alt' => 'Genix Printing Banner 1',
         ],
         [
-            'url' => 'https://picsum.photos/1600/520?random=22', // replace with your banner URL
+            'url' => asset('assets/images/banner/banner1.png'),
             'alt' => 'Genix Printing Banner 2',
         ],
         [
-            'url' => 'https://picsum.photos/1600/520?random=33', // replace with your banner URL
+            'url' => asset('assets/images/banner/banner3.png'),
             'alt' => 'Genix Printing Banner 3',
         ],
     ];
@@ -35,7 +35,6 @@
                                 alt="{{ $b['alt'] }}"
                                 loading="{{ $i === 0 ? 'eager' : 'lazy' }}"
                                 decoding="async"
-                                referrerpolicy="no-referrer"
                             />
                         </article>
                     @endforeach
@@ -175,54 +174,6 @@
 
 <script>
 (() => {
-    // ---------- fallback banners (if your direct links fail) ----------
-    const svgDataUri = (svg) => 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
-
-    const fallbackSvgs = [
-        svgDataUri(`<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="520" viewBox="0 0 1600 520">
-          <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#e11d48"/><stop offset=".55" stop-color="#fb7185"/><stop offset="1" stop-color="#f59e0b"/>
-          </linearGradient></defs>
-          <rect width="1600" height="520" fill="#f8fafc"/>
-          <rect x="-140" y="-180" width="820" height="820" rx="220" fill="url(#g1)" opacity=".9"/>
-          <rect x="920" y="90" width="560" height="340" rx="28" fill="#0b1220" opacity=".06"/>
-          <rect x="960" y="130" width="480" height="26" rx="13" fill="#0b1220" opacity=".12"/>
-          <rect x="960" y="176" width="360" height="18" rx="9" fill="#0b1220" opacity=".10"/>
-        </svg>`),
-        svgDataUri(`<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="520" viewBox="0 0 1600 520">
-          <defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#6366f1"/><stop offset=".5" stop-color="#22c55e"/><stop offset="1" stop-color="#38bdf8"/>
-          </linearGradient></defs>
-          <rect width="1600" height="520" fill="#f8fafc"/>
-          <rect x="760" y="-220" width="920" height="920" rx="260" fill="url(#g2)" opacity=".85"/>
-          <rect x="120" y="110" width="620" height="300" rx="28" fill="#0b1220" opacity=".06"/>
-          <rect x="160" y="150" width="520" height="22" rx="11" fill="#0b1220" opacity=".12"/>
-        </svg>`),
-        svgDataUri(`<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="520" viewBox="0 0 1600 520">
-          <defs><linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#ec4899"/><stop offset=".55" stop-color="#38bdf8"/><stop offset="1" stop-color="#f59e0b"/>
-          </linearGradient></defs>
-          <rect width="1600" height="520" fill="#f8fafc"/>
-          <rect x="-260" y="-260" width="980" height="980" rx="320" fill="url(#g3)" opacity=".85"/>
-          <rect x="880" y="120" width="600" height="280" rx="28" fill="#0b1220" opacity=".06"/>
-          <rect x="920" y="160" width="520" height="22" rx="11" fill="#0b1220" opacity=".12"/>
-        </svg>`),
-    ];
-
-    const applyFallback = (img, i) => {
-        if (!img || img.dataset.gxFallbackApplied === '1') return;
-        const idx = Number(img.getAttribute('data-gx-banner')) || i || 0;
-        img.src = fallbackSvgs[idx % fallbackSvgs.length];
-        img.dataset.gxFallbackApplied = '1';
-    };
-
-    const banners = Array.from(document.querySelectorAll('.gx-banner'));
-    banners.forEach((img, i) => {
-        img.addEventListener('error', () => applyFallback(img, i));
-        if (img.complete && img.naturalWidth === 0) applyFallback(img, i);
-    });
-
-    // ---------- slider ----------
     const root = document.querySelector('[data-gx-slider]');
     if (!root) return;
 

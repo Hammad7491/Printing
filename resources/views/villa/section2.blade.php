@@ -1,12 +1,13 @@
 {{-- resources/views/villa/section1.blade.php --}}
-<section class="gx-villa" id="gxVillaProduct" aria-label="Villa Sign Details">
+<section class="gx-villa" id="gxVillaProduct" aria-label="Villa Sign Gallery">
     <div class="gx-container">
-        <div class="gx-villa-grid">
-            {{-- LEFT: Gallery --}}
+
+        {{-- ✅ ONLY Gallery (Responsive for all devices) --}}
+        <div class="gx-villa-center">
             <div class="gx-gal" data-gx-gallery>
                 <div class="gx-gal-main">
                     <img
-                        class="gx-gal-mainimg is-active"
+                        class="gx-gal-mainimg"
                         src="{{ asset('assets/images/VillaSign/Villa8.jpg') }}"
                         alt="Villa Sign"
                         loading="eager"
@@ -18,87 +19,32 @@
                 <div class="gx-gal-thumbs" role="list" aria-label="Villa Sign gallery thumbnails">
                     <button class="gx-thumb is-active" type="button" role="listitem"
                             data-src="{{ asset('assets/images/VillaSign/Villa1.jpg') }}" aria-label="View image 1">
-                        <img src="{{ asset('assets/images/VillaSign/Villa2.jpg') }}" alt="Villa thumbnail 1" loading="lazy">
+                        <img src="{{ asset('assets/images/VillaSign/Villa1.jpg') }}" alt="Villa thumbnail 1" loading="lazy" decoding="async">
                     </button>
 
                     <button class="gx-thumb" type="button" role="listitem"
                             data-src="{{ asset('assets/images/VillaSign/Villa2.jpg') }}" aria-label="View image 2">
-                        <img src="{{ asset('assets/images/VillaSign/Villa3.jpg') }}" alt="Villa thumbnail 2" loading="lazy">
+                        <img src="{{ asset('assets/images/VillaSign/Villa2.jpg') }}" alt="Villa thumbnail 2" loading="lazy" decoding="async">
                     </button>
 
                     <button class="gx-thumb" type="button" role="listitem"
                             data-src="{{ asset('assets/images/VillaSign/Villa3.jpg') }}" aria-label="View image 3">
-                        <img src="{{ asset('assets/images/VillaSign/Villa4.jpg') }}" alt="Villa thumbnail 3" loading="lazy">
+                        <img src="{{ asset('assets/images/VillaSign/Villa3.jpg') }}" alt="Villa thumbnail 3" loading="lazy" decoding="async">
                     </button>
 
                     <button class="gx-thumb" type="button" role="listitem"
-                            data-src="{{ asset('assets/images/Villa sign/Villa4.jpg') }}" aria-label="View image 4">
-                        <img src="{{ asset('assets/images/VillaSign/Villa5.jpg') }}" alt="Villa thumbnail 4" loading="lazy">
+                            data-src="{{ asset('assets/images/VillaSign/Villa4.jpg') }}" aria-label="View image 4">
+                        <img src="{{ asset('assets/images/VillaSign/Villa4.jpg') }}" alt="Villa thumbnail 4" loading="lazy" decoding="async">
                     </button>
 
                     <button class="gx-thumb" type="button" role="listitem"
                             data-src="{{ asset('assets/images/VillaSign/Villa5.jpg') }}" aria-label="View image 5">
-                        <img src="{{ asset('assets/images/VillaSign/Villa6.jpg') }}" alt="Villa thumbnail 5" loading="lazy">
+                        <img src="{{ asset('assets/images/VillaSign/Villa5.jpg') }}" alt="Villa thumbnail 5" loading="lazy" decoding="async">
                     </button>
                 </div>
             </div>
-
-            {{-- RIGHT: Content --}}
-            <aside class="gx-info" aria-label="Villa Sign information">
-                <header class="gx-info-head">
-                    <span class="gx-pill">Outdoor • Indoor</span>
-
-                    <h1 class="gx-h1">Signature Villa Number Signs</h1>
-
-                    <p class="gx-sub">
-                        A clean, modern look for your entrance — durable materials, sharp finishing, and a premium feel that lasts.
-                    </p>
-                </header>
-
-                {{-- Single content block (no tabs, no extra headings) --}}
-                <div class="gx-panel">
-                    <h3 class="gx-h3">Made for entrances that deserve attention</h3>
-
-                    <p class="gx-p">
-                        Ideal for villas, gates, and home entrances. Designed to stay neat in heat, dust, and outdoor exposure —
-                        while keeping the look minimal and elegant.
-                    </p>
-
-                    <ul class="gx-bullets">
-                        <li>Weather-proof coating for long life</li>
-                        <li>Clean edges with secure mounting</li>
-                        <li>Custom size, color & layout options</li>
-                    </ul>
-
-                    <div class="gx-mini">
-                        <div class="gx-mini-item">
-                            <div class="gx-mini-k">Finish</div>
-                            <div class="gx-mini-v">Matte / Gloss / Brushed</div>
-                        </div>
-                        <div class="gx-mini-item">
-                            <div class="gx-mini-k">Materials</div>
-                            <div class="gx-mini-v">Acrylic • Aluminum • Stainless Steel • ACP</div>
-                        </div>
-                        <div class="gx-mini-item">
-                            <div class="gx-mini-k">Extras</div>
-                            <div class="gx-mini-v">3D letters • Optional LED backlight</div>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- CTA --}}
-                <div class="gx-cta">
-                    <button class="gx-btn" type="button" aria-label="Get quote for Villa Sign">
-                        Request a Quote
-                    </button>
-
-                    <p class="gx-note">
-                        <span class="gx-dot" aria-hidden="true"></span>
-                        Quick delivery • Premium finishing • UAE-quality standard
-                    </p>
-                </div>
-            </aside>
         </div>
+
     </div>
 </section>
 
@@ -183,62 +129,93 @@
     font-family: Manrope, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
 }
 
-/* ===== Villa layout ===== */
-.gx-villa{ padding: 26px 0 44px; }
-.gx-villa-grid{
-    display:grid;
-    grid-template-columns: 1.18fr .82fr;
-    gap: 22px;
-    align-items:start;
+.gx-villa *, .gx-faqs *{ box-sizing: border-box; }
+
+/* Scoped container (won't break other pages) */
+.gx-villa .gx-container,
+.gx-faqs  .gx-container{
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 18px;
 }
 
-/* ===== Gallery ===== */
+/* ===== Villa layout (CENTER ONLY) ===== */
+.gx-villa{ padding: 18px 0 16px; }
+
+.gx-villa-center{
+    display:flex;
+    justify-content:center;
+}
+
+/* Gallery card */
 .gx-gal{
+    width: min(920px, 100%);
     background:#fff;
     border-radius: 22px;
-    box-shadow: 0 18px 60px rgba(2,6,23,.08);
+    box-shadow: 0 14px 44px rgba(2,6,23,.08);
     overflow:hidden;
 }
+
+/* ✅ MAIN IMAGE: fully responsive (no fixed giant height on mobile) */
 .gx-gal-main{
     position:relative;
-    height: 520px;
+    width: 100%;
+    height: clamp(260px, 60vw, 520px); /* 👈 perfect for all screens */
     background: #f4f6f8;
 }
+
 .gx-gal-mainimg{
     position:absolute;
     inset:0;
     width:100%;
     height:100%;
-    object-fit:cover;
+    object-fit: cover;
     display:block;
-    opacity:0;
-    transform: translateX(14px);
-    transition: opacity .35s ease, transform .35s ease;
-}
-.gx-gal-mainimg.is-active{
-    opacity:1;
     transform: translateX(0);
+    opacity: 1;
+    transition: opacity .22s ease, transform .22s ease;
 }
+
+/* smooth swap without disappearing */
+.gx-gal-mainimg.is-fade{
+    opacity: .18;
+    transform: translateX(10px);
+}
+
+/* Thumbnails wrapper */
 .gx-gal-thumbs{
     display:flex;
     gap: 10px;
     padding: 12px;
-    overflow:auto;
+    overflow-x:auto;
+    overflow-y:hidden;
     background: #fff;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
 }
+.gx-gal-thumbs::-webkit-scrollbar{ height: 8px; }
+.gx-gal-thumbs::-webkit-scrollbar-thumb{
+    background: rgba(15,23,42,.12);
+    border-radius: 999px;
+}
+
+/* Thumbs (default) */
 .gx-thumb{
     border:0;
     padding:0;
     cursor:pointer;
     border-radius: 14px;
     overflow:hidden;
+
     width: 110px;
     height: 72px;
     flex: 0 0 auto;
+
     background:#eef2f5;
     box-shadow: 0 10px 24px rgba(2,6,23,.08);
     transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
     opacity:.78;
+    scroll-snap-align: start;
 }
 .gx-thumb img{
     width:100%;
@@ -254,141 +231,38 @@
     outline-offset: 0;
 }
 
-/* ===== Right info card ===== */
-.gx-info{
-    background:#fff;
-    border-radius: 22px;
-    box-shadow: 0 18px 60px rgba(2,6,23,.08);
-    padding: 18px;
-}
-.gx-info-head{ margin-bottom: 14px; }
+/* ✅ MOBILE: show ALL 5 thumbnails correctly (no cut / no weird sizing) */
+@media (max-width: 560px){
+    .gx-villa .gx-container,
+    .gx-faqs  .gx-container{ padding: 0 14px; }
 
-.gx-pill{
-    display:inline-flex;
-    align-items:center;
-    gap: 8px;
-    padding: 8px 12px;
-    border-radius: 999px;
-    background: rgba(2,6,23,.04);
-    color: rgba(15,23,42,.75);
-    font-weight: 700;
-    font-size: 12px;
-    letter-spacing: .01em;
-}
+    .gx-gal{ border-radius: 18px; }
 
-.gx-h1{
-    margin: 10px 0 8px;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    color:#0b1220;
-    font-size: clamp(22px, 2.6vw, 36px);
-    line-height: 1.08;
-}
-.gx-sub{
-    margin:0;
-    color: rgba(15,23,42,.70);
-    font-weight: 500;
-    line-height: 1.7;
-    font-size: 14.5px;
-}
+    /* keep main image nice */
+    .gx-gal-main{ height: clamp(240px, 78vw, 380px); }
 
-/* ===== Content panel ===== */
-.gx-panel{
-    margin-top: 12px;
-    background: rgba(2,6,23,.03);
-    border-radius: 18px;
-    padding: 14px;
-}
-.gx-h3{
-    margin: 0 0 10px;
-    font-size: 15px;
-    font-weight: 800;
-    color:#0f172a;
-    letter-spacing: -.01em;
-}
-.gx-p{
-    margin: 0 0 12px;
-    color: rgba(15,23,42,.74);
-    font-weight: 500;
-    line-height: 1.75;
-    font-size: 13.75px;
-}
-.gx-bullets{
-    margin: 0;
-    padding-left: 18px;
-    color: rgba(15,23,42,.76);
-    font-weight: 600;
-    line-height: 1.9;
-    font-size: 13.5px;
-}
-
-/* ===== Mini specs ===== */
-.gx-mini{
-    margin-top: 12px;
-    display:grid;
-    gap: 10px;
-}
-.gx-mini-item{
-    background:#fff;
-    border-radius: 14px;
-    padding: 10px 12px;
-    box-shadow: 0 10px 24px rgba(2,6,23,.08);
-}
-.gx-mini-k{
-    font-weight: 800;
-    font-size: 12px;
-    color:#0f172a;
-    margin-bottom: 4px;
-}
-.gx-mini-v{
-    font-weight: 600;
-    font-size: 13px;
-    color: rgba(15,23,42,.72);
-    line-height: 1.6;
-}
-
-/* ===== CTA ===== */
-.gx-cta{
-    margin-top: 14px;
-    display:flex;
-    gap: 12px;
-    align-items:center;
-    flex-wrap: wrap;
-}
-.gx-btn{
-    border:0;
-    cursor:pointer;
-    padding: 12px 18px;
-    border-radius: 999px;
-    font-weight: 800;
-    color:#fff;
-    background: linear-gradient(135deg, #e11d48 0%, #f97316 55%, #f59e0b 120%);
-    box-shadow: 0 18px 42px rgba(234,88,12,.18);
-    transition: transform .18s ease, filter .18s ease;
-}
-.gx-btn:hover{ transform: translateY(-1px); filter: brightness(1.02); }
-.gx-note{
-    margin:0;
-    display:flex;
-    align-items:center;
-    gap: 8px;
-    color: rgba(15,23,42,.68);
-    font-weight: 700;
-    font-size: 12px;
-}
-.gx-dot{
-    width: 10px; height: 10px;
-    border-radius: 999px;
-    background: linear-gradient(135deg, #e11d48, #f59e0b);
-    box-shadow: 0 10px 22px rgba(225,29,72,.14);
+    /* change thumbs to 5-column grid so all are visible */
+    .gx-gal-thumbs{
+        display:grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 8px;
+        overflow: hidden; /* no scroll needed because all fit */
+        padding: 10px;
+    }
+    .gx-thumb{
+        width: 100%;
+        height: 54px;
+        border-radius: 12px;
+        box-shadow: 0 8px 18px rgba(2,6,23,.07);
+    }
 }
 
 /* ===== FAQ ===== */
-.gx-faqs{ padding: 8px 0 54px; }
+.gx-faqs{ padding: 12px 0 54px; }
 .gx-faq-card{
     background:#fff;
     border-radius: 22px;
-    box-shadow: 0 18px 60px rgba(2,6,23,.08);
+    box-shadow: 0 14px 44px rgba(2,6,23,.08);
     padding: 22px;
 }
 .gx-faq-title{
@@ -450,25 +324,15 @@
 }
 .gx-a p{ margin: 8px 0 0; }
 
-/* ===== Responsive ===== */
-@media (max-width: 980px){
-    .gx-villa-grid{ grid-template-columns: 1fr; }
-    .gx-gal-main{ height: 440px; }
-}
 @media (max-width: 520px){
-    .gx-gal-main{ height: 340px; }
-    .gx-thumb{ width: 92px; height: 62px; }
-    .gx-info{ padding: 16px; }
-    .gx-btn{ width: 100%; text-align:center; }
-    .gx-note{ width: 100%; justify-content:center; }
-    .gx-faq-card{ padding: 18px; }
+    .gx-faq-card{ padding: 18px; border-radius: 18px; }
 }
 </style>
 
 <script>
-/* Gallery + FAQ (simple, clean) */
+/* Gallery + FAQ (responsive + clean) */
 (() => {
-    // ----- Gallery (thumbnail -> main image with slide)
+    // ----- Gallery (thumbnail -> main image)
     const gal = document.querySelector('[data-gx-gallery]');
     if (gal) {
         const main = gal.querySelector('.gx-gal-mainimg');
@@ -481,12 +345,19 @@
         const swapImage = (src, activeBtn) => {
             if (!main || !src || main.getAttribute('src') === src) return;
 
-            main.classList.remove('is-active');
+            main.classList.add('is-fade');
+
+            // swap after a tiny delay
             window.setTimeout(() => {
                 main.setAttribute('src', src);
-                main.classList.add('is-active');
+
+                // when the new image is ready, restore
+                main.onload = () => {
+                    main.classList.remove('is-fade');
+                };
+
                 if (activeBtn) setActiveThumb(activeBtn);
-            }, 140);
+            }, 120);
         };
 
         thumbs.forEach(btn => {
