@@ -7,7 +7,7 @@
                 <div class="gx-gal-main">
                     <img
                         class="gx-gal-mainimg is-active"
-                        src="{{ asset('assets/images/Villa sign/Villa8.jpg') }}"
+                        src="{{ asset('assets/images/VillaSign/Villa8.jpg') }}"
                         alt="Villa Sign"
                         loading="eager"
                         decoding="async"
@@ -17,28 +17,28 @@
                 {{-- Thumbnails (5 images) --}}
                 <div class="gx-gal-thumbs" role="list" aria-label="Villa Sign gallery thumbnails">
                     <button class="gx-thumb is-active" type="button" role="listitem"
-                            data-src="{{ asset('assets/images/Villa sign/Villa1.jpg') }}" aria-label="View image 1">
-                        <img src="{{ asset('assets/images/Villa sign/Villa2.jpg') }}" alt="Villa thumbnail 1" loading="lazy">
+                            data-src="{{ asset('assets/images/VillaSign/Villa1.jpg') }}" aria-label="View image 1">
+                        <img src="{{ asset('assets/images/VillaSign/Villa2.jpg') }}" alt="Villa thumbnail 1" loading="lazy">
                     </button>
 
                     <button class="gx-thumb" type="button" role="listitem"
-                            data-src="{{ asset('assets/images/Villa sign/Villa2.jpg') }}" aria-label="View image 2">
-                        <img src="{{ asset('assets/images/Villa sign/Villa3.jpg') }}" alt="Villa thumbnail 2" loading="lazy">
+                            data-src="{{ asset('assets/images/VillaSign/Villa2.jpg') }}" aria-label="View image 2">
+                        <img src="{{ asset('assets/images/VillaSign/Villa3.jpg') }}" alt="Villa thumbnail 2" loading="lazy">
                     </button>
 
                     <button class="gx-thumb" type="button" role="listitem"
-                            data-src="{{ asset('assets/images/Villa sign/Villa3.jpg') }}" aria-label="View image 3">
-                        <img src="{{ asset('assets/images/Villa sign/Villa4.jpg') }}" alt="Villa thumbnail 3" loading="lazy">
+                            data-src="{{ asset('assets/images/VillaSign/Villa3.jpg') }}" aria-label="View image 3">
+                        <img src="{{ asset('assets/images/VillaSign/Villa4.jpg') }}" alt="Villa thumbnail 3" loading="lazy">
                     </button>
 
                     <button class="gx-thumb" type="button" role="listitem"
                             data-src="{{ asset('assets/images/Villa sign/Villa4.jpg') }}" aria-label="View image 4">
-                        <img src="{{ asset('assets/images/Villa sign/Villa5.jpg') }}" alt="Villa thumbnail 4" loading="lazy">
+                        <img src="{{ asset('assets/images/VillaSign/Villa5.jpg') }}" alt="Villa thumbnail 4" loading="lazy">
                     </button>
 
                     <button class="gx-thumb" type="button" role="listitem"
-                            data-src="{{ asset('assets/images/Villa sign/Villa5.jpg') }}" aria-label="View image 5">
-                        <img src="{{ asset('assets/images/Villa sign/Villa6.jpg') }}" alt="Villa thumbnail 5" loading="lazy">
+                            data-src="{{ asset('assets/images/VillaSign/Villa5.jpg') }}" aria-label="View image 5">
+                        <img src="{{ asset('assets/images/VillaSign/Villa6.jpg') }}" alt="Villa thumbnail 5" loading="lazy">
                     </button>
                 </div>
             </div>

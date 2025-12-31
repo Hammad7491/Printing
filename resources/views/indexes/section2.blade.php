@@ -1,16 +1,7 @@
 {{-- resources/views/partials/categories.blade.php --}}
 <section class="gx-cats" id="gxCategories" aria-label="Categories">
     <div class="gx-container">
-        <div class="gx-cats-head">
-            <div class="gx-cats-titlewrap">
-                <h2 class="gx-cats-title">Shop by Category</h2>
-                <p class="gx-cats-sub">Choose what you need — premium materials, clean finishing, and fast turnaround.</p>
-            </div>
-
-            <div class="gx-cats-actions">
-                <button class="gx-cats-btn" type="button">View All</button>
-            </div>
-        </div>
+        
 
         <div class="gx-cats-grid">
             {{-- Card 1 --}}
@@ -30,7 +21,7 @@
             {{-- Card 2 (Villa link added) --}}
             <article class="gx-cat">
                 <div class="gx-cat-media">
-                    <img class="gx-cat-img" src="{{ asset('assets/images/Villa sign/Villa1.jpg') }}" alt="Villa Sign" loading="lazy">
+                    <img class="gx-cat-img" src="{{ asset('assets/images/VillaSign/Villa1.jpg') }}" alt="Villa Sign" loading="lazy">
                     <div class="gx-cat-overlay" aria-hidden="true"></div>
                 </div>
                 <div class="gx-cat-body">

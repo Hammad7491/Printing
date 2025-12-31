@@ -7,7 +7,7 @@
                 <div class="gx-prod-media">
                     <img
                         class="gx-prod-img"
-                        src="{{ asset('assets/images/Villa sign/Villa9.jpg') }}"
+                        src="{{ asset('assets/images/VillaSign/Villa9.jpg') }}"
                         alt="Villa Sign"
                         loading="lazy"
                     />

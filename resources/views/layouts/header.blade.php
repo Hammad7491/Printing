@@ -4,6 +4,9 @@
         <div class="gx-bar">
             {{-- Left: Logo --}}
             <a href="{{ route('indexes') }}" class="gx-logo" aria-label="Genix Home">
+                {{-- If you have a real logo image, use this instead:
+                <img class="gx-logo-img" src="{{ asset('assets/images/logo.png') }}" alt="Genix Printing">
+                --}}
                 <span class="gx-logo-mark" aria-hidden="true">G</span>
                 <span class="gx-logo-text">
                     <span class="gx-logo-name">Genix</span>
@@ -11,82 +14,18 @@
                 </span>
             </a>
 
-            {{-- Center: Desktop Nav --}}
-            <nav class="gx-nav" aria-label="Primary navigation">
-                <a href="{{ route('indexes') }}"
-                   class="gx-navlink {{ request()->routeIs('indexes') ? 'is-active' : '' }}">
-                    Home
-                </a>
+            {{-- Center: Search --}}
+            <form class="gx-search" action="{{ route('indexes') }}" method="GET" role="search" aria-label="Search products">
+                <label class="sr-only" for="gxSearchTop">Search</label>
 
-                <a href=""
-                   class="gx-navlink {{ request()->routeIs('products*') ? 'is-active' : '' }}">
-                    Products
-                </a>
-
-                <a href=""
-                   class="gx-navlink {{ request()->routeIs('services*') ? 'is-active' : '' }}">
-                    Services
-                </a>
-
-                <a href=""
-                   class="gx-navlink {{ request()->routeIs('about') ? 'is-active' : '' }}">
-                    About
-                </a>
-
-                <a href=""
-                   class="gx-navlink {{ request()->routeIs('contact') ? 'is-active' : '' }}">
-                    Contact Us
-                </a>
-            </nav>
-
-            {{-- Right: Search input with icon (desktop) + Mobile toggle --}}
-            <div class="gx-right">
-                <form class="gx-search" action="" method="GET" role="search">
-                    <label class="sr-only" for="gxSearchTop">Search</label>
-                    <div class="gx-search-wrap">
-                        <input
-                            id="gxSearchTop"
-                            class="gx-search-input"
-                            type="search"
-                            name="q"
-                            value="{{ request('q') }}"
-                            placeholder="Search products..."
-                            autocomplete="off"
-                        />
-
-                        <button class="gx-search-iconbtn" type="submit" aria-label="Search">
-                            <svg class="gx-ico" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M10.5 3a7.5 7.5 0 1 0 4.63 13.4l3.74 3.74a1 1 0 0 0 1.41-1.41l-3.74-3.74A7.5 7.5 0 0 0 10.5 3Zm0 2a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Z"/>
-                            </svg>
-                        </button>
-                    </div>
-                </form>
-
-                <button class="gx-burger" type="button" aria-label="Open menu" aria-controls="gxMobile" aria-expanded="false" id="gxBurger">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    {{-- Mobile panel --}}
-    <div class="gx-mobile" id="gxMobile" hidden>
-        <div class="gx-mobile-inner">
-            <div class="gx-mobile-top">
-                <div class="gx-mobile-title">Menu</div>
-                <button class="gx-mobile-close" type="button" aria-label="Close menu" id="gxClose">Close</button>
-            </div>
-
-            <form class="gx-search gx-search-mobile" action="" method="GET" role="search">
-                <label class="sr-only" for="gxSearchM">Search</label>
-                <div class="gx-search-wrap gx-search-wrap--mobile">
+                <div class="gx-search-wrap">
                     <input
-                        id="gxSearchM"
+                        id="gxSearchTop"
                         class="gx-search-input"
                         type="search"
                         name="q"
                         value="{{ request('q') }}"
-                        placeholder="Search products..."
+                        placeholder="Search"
                         autocomplete="off"
                     />
 
@@ -98,19 +37,77 @@
                 </div>
             </form>
 
-            <nav class="gx-mobile-nav" aria-label="Mobile navigation">
-                <a href="{{ route('indexes') }}" class="{{ request()->routeIs('indexes') ? 'is-active' : '' }}">Home</a>
-                <a href="" class="{{ request()->routeIs('products*') ? 'is-active' : '' }}">Products</a>
-                <a href="" class="{{ request()->routeIs('services*') ? 'is-active' : '' }}">Services</a>
-                <a href="" class="{{ request()->routeIs('about') ? 'is-active' : '' }}">About</a>
-                <a href="" class="{{ request()->routeIs('contact') ? 'is-active' : '' }}">Contact Us</a>
-            </nav>
+            {{-- Right: Reviews --}}
+            <div class="gx-reviews" aria-label="Customer reviews summary">
+                <div class="gx-review-avatar" aria-hidden="true"></div>
+
+                <div class="gx-review-meta">
+                    <div class="gx-stars" aria-label="5 out of 5 stars">
+                        <span class="gx-star is-on" aria-hidden="true">★</span>
+                        <span class="gx-star is-on" aria-hidden="true">★</span>
+                        <span class="gx-star is-on" aria-hidden="true">★</span>
+                        <span class="gx-star is-on" aria-hidden="true">★</span>
+                        <span class="gx-star is-on" aria-hidden="true">★</span>
+                    </div>
+
+                    <div class="gx-review-text">
+                        <span class="gx-score">5.0</span>
+                        <span class="gx-sep">•</span>
+                        <span class="gx-count">120+ reviews</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- Mobile: Search + Reviews row --}}
+        <div class="gx-mobile-row">
+            <form class="gx-search gx-search--mobile" action="{{ route('indexes') }}" method="GET" role="search" aria-label="Search products">
+                <label class="sr-only" for="gxSearchM">Search</label>
+
+                <div class="gx-search-wrap">
+                    <input
+                        id="gxSearchM"
+                        class="gx-search-input"
+                        type="search"
+                        name="q"
+                        value="{{ request('q') }}"
+                        placeholder="Search"
+                        autocomplete="off"
+                    />
+
+                    <button class="gx-search-iconbtn" type="submit" aria-label="Search">
+                        <svg class="gx-ico" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M10.5 3a7.5 7.5 0 1 0 4.63 13.4l3.74 3.74a1 1 0 0 0 1.41-1.41l-3.74-3.74A7.5 7.5 0 0 0 10.5 3Zm0 2a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Z"/>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+
+            <div class="gx-reviews gx-reviews--mobile" aria-label="Customer reviews summary">
+                <div class="gx-review-avatar" aria-hidden="true"></div>
+
+                <div class="gx-review-meta">
+                    <div class="gx-stars" aria-label="5 out of 5 stars">
+                        <span class="gx-star is-on" aria-hidden="true">★</span>
+                        <span class="gx-star is-on" aria-hidden="true">★</span>
+                        <span class="gx-star is-on" aria-hidden="true">★</span>
+                        <span class="gx-star is-on" aria-hidden="true">★</span>
+                        <span class="gx-star is-on" aria-hidden="true">★</span>
+                    </div>
+
+                    <div class="gx-review-text">
+                        <span class="gx-score">5.0</span>
+                        <span class="gx-sep">•</span>
+                        <span class="gx-count">120+ reviews</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </header>
 
 <style>
-/* ===== Font (clean + modern) ===== */
+/* ===== Header: Logo | Search | Reviews ===== */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
 
 :root{
@@ -134,6 +131,7 @@
     padding:0;margin:-1px;overflow:hidden;
     clip:rect(0,0,0,0);white-space:nowrap;border:0;
 }
+
 .gx-container{
     max-width: var(--gx-max);
     margin: 0 auto;
@@ -150,11 +148,11 @@
     border-bottom: 1px solid var(--gx-border);
 }
 
-/* ===== Single row layout ===== */
+/* Main bar */
 .gx-bar{
-    display:flex;
+    display:grid;
+    grid-template-columns: auto 1fr auto; /* logo | search | reviews */
     align-items:center;
-    justify-content:space-between;
     gap: 14px;
     padding: 14px 16px;
     border-radius: 22px;
@@ -170,9 +168,10 @@
     gap: 10px;
     color: var(--gx-text);
     user-select:none;
-    flex: 0 0 auto;
     text-decoration:none;
+    flex: 0 0 auto;
 }
+.gx-logo-img{ height:44px; width:auto; display:block; }
 .gx-logo-mark{
     width: 44px; height: 44px;
     border-radius: 14px;
@@ -184,11 +183,7 @@
     box-shadow: 0 18px 40px rgba(225,29,72,.22);
 }
 .gx-logo-text{ display:flex; flex-direction:column; line-height:1; }
-.gx-logo-name{
-    font-size: 18px;
-    font-weight: 900;
-    letter-spacing: .2px;
-}
+.gx-logo-name{ font-size: 18px; font-weight: 900; letter-spacing: .2px; }
 .gx-logo-tag{
     margin-top: 3px;
     font-size: 12px;
@@ -198,85 +193,46 @@
     text-transform: uppercase;
 }
 
-/* Nav center */
-.gx-nav{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap: 6px;
-    flex: 1;
-    min-width: 0;
-}
-.gx-navlink{
-    text-decoration:none;
-    appearance:none;
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-
-    color: rgba(15,23,42,.88);
-    font-weight: 800;
-    font-size: 13px;
-    padding: 10px 14px;
-    border-radius: 14px;
-    transition: background .18s ease, color .18s ease, transform .18s ease, box-shadow .18s ease;
-    white-space: nowrap;
-}
-.gx-navlink:hover{
-    background: rgba(225,29,72,.08);
-    color: var(--gx-text);
-    transform: translateY(-1px);
-}
-.gx-navlink.is-active{
-    background: rgba(15,23,42,.06);
-    box-shadow: inset 0 0 0 1px rgba(15,23,42,.10);
-}
-
-/* Right side */
-.gx-right{
-    display:flex;
-    align-items:center;
-    gap: 10px;
-    flex: 0 0 auto;
-}
-
-/* Search input (right) */
+/* Search (center) */
 .gx-search{
     margin: 0;
-    width: 320px;
-    max-width: 40vw;
+    width: 100%;
+    max-width: 620px;
+    justify-self: center;
 }
 .gx-search-wrap{
     display:flex;
     align-items:center;
     gap: 10px;
-    padding: 8px 10px;
-    border-radius: 16px;
-    background: rgba(255,255,255,.9);
+    padding: 10px 12px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.92);
     border: 1px solid var(--gx-border);
     box-shadow: 0 10px 28px rgba(2,6,23,.06);
-    transition: box-shadow .18s ease, border-color .18s ease;
+    transition: box-shadow .18s ease, border-color .18s ease, background .18s ease;
 }
 .gx-search-wrap:focus-within{
     border-color: rgba(225,29,72,.35);
     box-shadow: var(--gx-ring), 0 18px 45px rgba(2,6,23,.10);
+    background: rgba(255,255,255,.98);
 }
 .gx-search-input{
     flex: 1;
     border: 0;
     outline: none;
-    font-size: 14px;
+    font-size: 15px;
     color: var(--gx-text);
     background: transparent;
+    padding: 6px 6px;
 }
 .gx-search-input::placeholder{ color: rgba(100,116,139,.9); }
 
 .gx-search-iconbtn{
     border: 0;
     cursor: pointer;
-    width: 38px;
-    height: 38px;
-    border-radius: 14px;
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
     color: #fff;
     display:grid;
     place-items:center;
@@ -285,167 +241,73 @@
     transition: transform .18s ease, filter .18s ease;
 }
 .gx-search-iconbtn:hover{ transform: translateY(-1px); filter: brightness(1.03); }
-.gx-search-iconbtn:active{ transform: translateY(0px); }
-
 .gx-ico{ width: 18px; height: 18px; fill: currentColor; opacity: .95; }
 
-/* Burger */
-.gx-burger{
-    display:none;
-    width: 44px; height: 44px;
-    border-radius: 16px;
-    border: 1px solid var(--gx-border);
-    background: rgba(255,255,255,.7);
-    cursor:pointer;
-    position: relative;
-}
-.gx-burger span{
-    position:absolute;
-    left: 12px; right: 12px;
-    height: 2px;
-    background: var(--gx-text);
-    border-radius: 999px;
-    transition: transform .18s ease, top .18s ease, opacity .18s ease;
-}
-.gx-burger span:nth-child(1){ top: 14px; }
-.gx-burger span:nth-child(2){ top: 21px; }
-.gx-burger span:nth-child(3){ top: 28px; }
-
-/* ===== Mobile panel ===== */
-.gx-mobile{
-    border-top: 1px solid var(--gx-border);
-    background: rgba(255,255,255,.92);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-}
-.gx-mobile-inner{
-    max-width: var(--gx-max);
-    margin: 0 auto;
-    padding: 14px 18px 18px;
-}
-.gx-mobile-top{
+/* Reviews (right) */
+.gx-reviews{
     display:flex;
     align-items:center;
-    justify-content:space-between;
-    margin-bottom: 10px;
-}
-.gx-mobile-title{
-    font-weight: 900;
-    color: var(--gx-text);
-}
-.gx-mobile-close{
-    border: 1px solid var(--gx-border);
-    background: rgba(255,255,255,.85);
-    border-radius: 12px;
-    padding: 8px 10px;
-    font-weight: 900;
-    cursor:pointer;
-}
-.gx-search-wrap--mobile{
-    padding: 10px 12px;
-    border-radius: 18px;
-}
-.gx-search-mobile{
-    width: 100%;
-    max-width: none;
-}
-
-/* Mobile links */
-.gx-mobile-nav{
-    display:grid;
     gap: 10px;
-    margin-top: 12px;
-}
-.gx-mobile-nav a{
-    text-decoration:none;
-    border: 1px solid var(--gx-border);
-    background: rgba(255,255,255,.85);
-    color: var(--gx-text);
-    font-weight: 850;
-    padding: 12px 14px;
+    padding: 8px 10px;
     border-radius: 16px;
-    transition: background .18s ease, transform .18s ease;
+    background: rgba(255,255,255,.55);
+    border: 1px solid rgba(15,23,42,.10);
+    box-shadow: 0 12px 30px rgba(2,6,23,.06);
+    white-space: nowrap;
 }
-.gx-mobile-nav a:hover{ transform: translateY(-1px); background: rgba(225,29,72,.06); }
-.gx-mobile-nav a.is-active{
-    background: rgba(15,23,42,.06);
-    box-shadow: inset 0 0 0 1px rgba(15,23,42,.10);
+.gx-review-avatar{
+    width: 36px; height: 36px;
+    border-radius: 999px;
+    background:
+        radial-gradient(120% 120% at 30% 20%, rgba(245,158,11,.35), transparent 55%),
+        radial-gradient(120% 120% at 70% 60%, rgba(225,29,72,.25), transparent 55%),
+        rgba(15,23,42,.06);
+    border: 1px solid rgba(15,23,42,.10);
 }
+.gx-review-meta{ display:flex; flex-direction:column; gap: 2px; }
+.gx-stars{ display:flex; gap: 2px; line-height: 1; }
+.gx-star{
+    font-size: 14px;
+    color: rgba(245,158,11,.95); /* amber */
+}
+.gx-review-text{
+    font-weight: 800;
+    font-size: 12.5px;
+    color: rgba(15,23,42,.72);
+}
+.gx-score{ color: var(--gx-text); }
+.gx-sep{ margin: 0 6px; color: rgba(15,23,42,.38); }
+.gx-count{ color: rgba(15,23,42,.62); }
 
-/* ===== Responsive ===== */
-@media (max-width: 1000px){
-    .gx-search{ width: 280px; }
+/* Mobile extra row */
+.gx-mobile-row{
+    display:none;
+    margin-top: 10px;
+    gap: 10px;
 }
-@media (max-width: 900px){
-    .gx-nav{ display:none; }
-    .gx-search{ width: 240px; max-width: 52vw; }
-    .gx-burger{ display:inline-block; }
+.gx-search--mobile{ max-width: none; justify-self: stretch; }
+.gx-reviews--mobile{ justify-content: center; width: 100%; }
+
+/* Responsive */
+@media (max-width: 980px){
+    .gx-bar{ grid-template-columns: auto 1fr auto; }
+    .gx-search{ max-width: 520px; }
+    .gx-review-text{ display:none; } /* keep it clean on medium screens */
 }
-@media (max-width: 640px){
+@media (max-width: 740px){
+    .gx-bar{
+        grid-template-columns: auto auto;
+        gap: 12px;
+    }
     .gx-search{ display:none; }
+    .gx-reviews{ padding: 8px 10px; }
+    .gx-mobile-row{ display:grid; grid-template-columns: 1fr; }
 }
 @media (max-width: 420px){
     .gx-logo-name{ font-size: 16px; }
     .gx-logo-mark{ width: 42px; height: 42px; }
     .gx-container{ padding: 12px 14px; }
-    .gx-bar{ padding: 12px 12px; }
+    .gx-bar{ padding: 12px 12px; border-radius: 20px; }
+    .gx-search-iconbtn{ width: 42px; height: 42px; }
 }
 </style>
-
-<script>
-(() => {
-    const burger = document.getElementById('gxBurger');
-    const closeBtn = document.getElementById('gxClose');
-    const panel  = document.getElementById('gxMobile');
-    if (!burger || !panel) return;
-
-    const setOpen = (open) => {
-        burger.setAttribute('aria-expanded', String(open));
-        if (open) {
-            panel.hidden = false;
-            const spans = burger.querySelectorAll('span');
-            if (spans.length === 3) {
-                spans[0].style.top = '21px';
-                spans[0].style.transform = 'rotate(45deg)';
-                spans[1].style.opacity = '0';
-                spans[2].style.top = '21px';
-                spans[2].style.transform = 'rotate(-45deg)';
-            }
-        } else {
-            panel.hidden = true;
-            const spans = burger.querySelectorAll('span');
-            if (spans.length === 3) {
-                spans[0].style.top = '14px';
-                spans[0].style.transform = 'rotate(0deg)';
-                spans[1].style.opacity = '1';
-                spans[2].style.top = '28px';
-                spans[2].style.transform = 'rotate(0deg)';
-            }
-        }
-    };
-
-    burger.addEventListener('click', () => {
-        const isOpen = burger.getAttribute('aria-expanded') === 'true';
-        setOpen(!isOpen);
-    });
-
-    closeBtn?.addEventListener('click', () => setOpen(false));
-
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 900) setOpen(false);
-    });
-
-    document.addEventListener('click', (e) => {
-        const isOpen = burger.getAttribute('aria-expanded') === 'true';
-        if (!isOpen) return;
-        if (e.target.closest('#gxHeader')) return;
-        setOpen(false);
-    });
-
-    panel.addEventListener('click', (e) => {
-        const link = e.target.closest('.gx-mobile-nav a');
-        if (!link) return;
-        setOpen(false);
-    });
-})();
-</script>
