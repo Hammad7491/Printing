@@ -1,7 +1,16 @@
 {{-- resources/views/partials/categories.blade.php --}}
 <section class="gx-cats" id="gxCategories" aria-label="Categories">
     <div class="gx-container">
-        
+
+        {{-- Top Tabs (ONLY UI pills, no filtering) --}}
+        <div class="gx-tabs" aria-label="Category quick tabs">
+            <a class="gx-tab" href="#" role="button">Office Sign</a>
+            <a class="gx-tab" href="#" role="button">Home/Villa Sign</a>
+            <a class="gx-tab" href="#" role="button">Labels &amp; Tags</a>
+            <a class="gx-tab" href="#" role="button">Print &amp; Cut Sticker</a>
+            <a class="gx-tab" href="#" role="button">Stands &amp; Backdrops</a>
+            <a class="gx-tab" href="#" role="button">Flags &amp; Fabric</a>
+        </div>
 
         <div class="gx-cats-grid">
             {{-- Card 1 --}}
@@ -95,47 +104,45 @@
 /* ===== Categories Section (Images) ===== */
 .gx-cats{ padding: 18px 0 36px; }
 
-.gx-cats-head{
+/* ===== Top Tabs (ONLY) ===== */
+.gx-tabs{
     display:flex;
-    align-items:flex-end;
-    justify-content:space-between;
-    gap: 14px;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 18px;
+    border: 1px solid rgba(15,23,42,.10);
+    background: rgba(255,255,255,.62);
+    box-shadow: 0 18px 55px rgba(2,6,23,.08);
     margin-bottom: 14px;
 }
-.gx-cats-titlewrap{ max-width: 620px; }
-.gx-cats-title{
-    margin: 0;
-    font-weight: 1000;
-    letter-spacing: -0.02em;
-    color: #0f172a;
-    font-size: clamp(18px, 2.2vw, 26px);
-}
-.gx-cats-sub{
-    margin: 6px 0 0;
-    color: rgba(15,23,42,.62);
-    font-weight: 800;
-    font-size: 14px;
-    line-height: 1.6;
-}
-.gx-cats-actions{ flex: 0 0 auto; }
-.gx-cats-btn{
-    appearance:none;
-    border: 1px solid rgba(15,23,42,.12);
-    background: rgba(255,255,255,.75);
-    border-radius: 16px;
-    padding: 10px 12px;
+.gx-tab{
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding: 10px 14px;
+    border-radius: 999px;
+
     font-weight: 950;
-    cursor:pointer;
-    color: #0f172a;
-    box-shadow: 0 12px 28px rgba(2,6,23,.06);
-    transition: transform .18s ease, background .18s ease;
+    font-size: 13px;
+    color: rgba(15,23,42,.80);
+    background: rgba(15,23,42,.08);
+    transition: transform .18s ease, background .18s ease, color .18s ease, box-shadow .18s ease;
+    white-space: nowrap;
 }
-.gx-cats-btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.92); }
+.gx-tab:hover{
+    transform: translateY(-1px);
+    background: rgba(225,29,72,.10);
+    color: rgba(15,23,42,.92);
+}
+.gx-tab:active{ transform: translateY(0); }
 
 /* Grid */
 .gx-cats-grid{
     display:grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 per row (desktop) */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 14px;
 }
 
@@ -199,7 +206,6 @@
     letter-spacing: -0.01em;
 }
 .gx-cat-link{
-    appearance:none;
     border: 0;
     background: transparent;
     cursor:pointer;
@@ -216,7 +222,6 @@
     align-items:center;
     gap: 8px;
     width: fit-content;
-
     text-decoration: none;
 }
 .gx-cat-link:hover{ color: rgba(15,23,42,.92); }
@@ -239,23 +244,18 @@
     transform: translate(-55%, -55%) rotate(45deg);
 }
 
-/* Responsive: 2 per row on tablets + mobiles */
+/* Responsive */
 @media (max-width: 900px){
-    .gx-cats-head{ align-items:flex-start; flex-direction:column; }
     .gx-cats-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .gx-cat{ min-height: 330px; }
     .gx-cat-media{ height: 230px; }
 }
-
-/* Small mobile: keep 2 per row */
 @media (max-width: 520px){
     .gx-cats-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .gx-cat{ min-height: 300px; }
     .gx-cat-media{ height: 200px; }
     .gx-cat-title{ font-size: 14px; }
 }
-
-/* Very small phones: 1 per row */
 @media (max-width: 360px){
     .gx-cats-grid{ grid-template-columns: 1fr; }
 }
