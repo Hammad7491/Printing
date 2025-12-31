@@ -13,7 +13,7 @@
                 />
             </a>
 
-            {{-- Center: Search (smaller) --}}
+            {{-- Center: Search --}}
             <form class="gx-search" action="{{ route('indexes') }}" method="GET" role="search" aria-label="Search products">
                 <label class="sr-only" for="gxSearchTop">Search</label>
 
@@ -36,7 +36,7 @@
                 </div>
             </form>
 
-            {{-- Right: Reviews (clean, no outer border/shadow) --}}
+            {{-- Right: Reviews --}}
             <div class="gx-reviews" aria-label="Customer reviews summary">
                 <div class="gx-review-avatar" aria-hidden="true"></div>
 
@@ -91,6 +91,7 @@
     padding: 14px 18px;
 }
 
+/* Header shell */
 .gx-header{
     position: sticky;
     top: 0;
@@ -98,23 +99,24 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     background: var(--gx-bg);
-    border-bottom: 1px solid var(--gx-border);
+    border-bottom: 0;
 }
 
-/* Main bar */
+/* No outer floating box */
 .gx-bar{
     display:grid;
-    grid-template-columns: auto 1fr auto; /* logo | search | reviews */
+    grid-template-columns: auto 1fr auto;
     align-items:center;
     gap: 14px;
-    padding: 12px 14px;
-    border-radius: 22px;
-    background: rgba(255,255,255,.65);
-    border: 1px solid var(--gx-border);
-    box-shadow: 0 14px 44px rgba(2,6,23,.08);
+
+    padding: 8px 0;
+    border-radius: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
 }
 
-/* Logo */
+/* ✅ Logo bigger + balanced */
 .gx-logo{
     display:flex;
     align-items:center;
@@ -122,17 +124,18 @@
     user-select:none;
 }
 .gx-logo-img{
-    height: 44px;
+    height: 64px;        /* ✅ bigger */
     width: auto;
+    max-width: 260px;    /* ✅ prevent too wide */
     display:block;
     object-fit: contain;
 }
 
-/* Search (smaller) */
+/* Search */
 .gx-search{
     margin: 0;
     width: 100%;
-    max-width: 440px;          /* smaller than before */
+    max-width: 420px;
     justify-self: center;
 }
 .gx-search-wrap{
@@ -140,15 +143,15 @@
     align-items:center;
     gap: 10px;
 
-    padding: 8px 10px;         /* smaller padding */
+    padding: 8px 10px;
     border-radius: 999px;
     background: rgba(255,255,255,.92);
-    border: 1px solid var(--gx-border);
+    border: 1px solid rgba(15,23,42,.10);
     box-shadow: 0 10px 28px rgba(2,6,23,.06);
     transition: box-shadow .18s ease, border-color .18s ease, background .18s ease;
 }
 .gx-search-wrap:focus-within{
-    border-color: rgba(225,29,72,.35);
+    border-color: rgba(225,29,72,.30);
     box-shadow: var(--gx-ring), 0 16px 40px rgba(2,6,23,.10);
     background: rgba(255,255,255,.98);
 }
@@ -166,7 +169,7 @@
 .gx-search-iconbtn{
     border: 0;
     cursor: pointer;
-    width: 40px;               /* smaller button */
+    width: 40px;
     height: 40px;
     border-radius: 999px;
     color: #fff;
@@ -179,16 +182,15 @@
 .gx-search-iconbtn:hover{ transform: translateY(-1px); filter: brightness(1.03); }
 .gx-ico{ width: 18px; height: 18px; fill: currentColor; opacity: .95; }
 
-/* Reviews (clean: no border/shadow box) */
+/* Reviews */
 .gx-reviews{
     display:flex;
     align-items:center;
     gap: 10px;
-
-    padding: 0;               /* remove pill padding */
-    background: transparent;  /* remove floating background */
-    border: 0;                /* remove border */
-    box-shadow: none;         /* remove shadow */
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
     white-space: nowrap;
 }
 .gx-review-avatar{
@@ -213,7 +215,8 @@
 
 /* Responsive */
 @media (max-width: 980px){
-    .gx-search{ max-width: 380px; }
+    .gx-search{ max-width: 360px; }
+    .gx-logo-img{ height: 58px; }
 }
 @media (max-width: 740px){
     .gx-bar{
@@ -222,6 +225,7 @@
             "logo reviews"
             "search search";
         row-gap: 10px;
+        padding: 8px 0;
     }
     .gx-logo{ grid-area: logo; }
     .gx-reviews{ grid-area: reviews; justify-self: end; }
@@ -229,8 +233,7 @@
 }
 @media (max-width: 420px){
     .gx-container{ padding: 12px 14px; }
-    .gx-bar{ padding: 12px 12px; border-radius: 20px; }
-    .gx-logo-img{ height: 40px; }
+    .gx-logo-img{ height: 48px; max-width: 210px; }
     .gx-search-iconbtn{ width: 38px; height: 38px; }
     .gx-review-text{ font-size: 12.5px; }
 }
