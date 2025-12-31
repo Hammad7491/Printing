@@ -2,16 +2,32 @@
 <footer class="gx-footer" id="gxFooter" aria-label="Footer">
     <div class="gx-container">
         <div class="gx-footer-bar">
-            {{-- Left: Brand --}}
-            <div class="gx-footer-brand" aria-label="Genix Printing">
-                <span class="gx-footer-name">Genix</span>
-                <span class="gx-footer-tag">printing</span>
+
+            {{-- Left: Phone + Email (replace Genix printing) --}}
+            <div class="gx-footer-contact" aria-label="Contact info">
+                <a class="gx-contact-row" href="tel:+971561247035" aria-label="Call +971 56 124 7035">
+                    <span class="gx-ci" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M6.6 10.8c1.5 3 3.7 5.2 6.7 6.7l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.2.7 3.4.7.7 0 1.3.6 1.3 1.3V21c0 .7-.6 1.3-1.3 1.3C10.5 22.3 1.7 13.5 1.7 2.9 1.7 2.2 2.3 1.6 3 1.6h3.6c.7 0 1.3.6 1.3 1.3 0 1.2.2 2.4.7 3.4.1.4 0 .9-.2 1.2l-1.8 2.3Z"/>
+                        </svg>
+                    </span>
+                    <span class="gx-contact-text">+971 56 124 7035</span>
+                </a>
+
+                <a class="gx-contact-row" href="mailto:info@genixxprinting.com" aria-label="Email genixprinting@gmail.com">
+                    <span class="gx-ci" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"/>
+                        </svg>
+                    </span>
+                    <span class="gx-contact-text">genixprinting@gmail.com</span>
+                </a>
             </div>
 
             {{-- Right: Social icons (WITH links) --}}
             <div class="gx-footer-social" aria-label="Social media">
 
-                {{-- WhatsApp (fixed: proper WhatsApp logo) --}}
+                {{-- WhatsApp --}}
                 <a class="gx-social-btn" href="https://wa.me/message/KLYDN27V7PDVA1" target="_blank" rel="noopener"
                    aria-label="WhatsApp Genix Printing">
                     <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -19,7 +35,7 @@
                     </svg>
                 </a>
 
-                {{-- Instagram (link) --}}
+                {{-- Instagram --}}
                 <a class="gx-social-btn" href="https://www.instagram.com/genixprinting5" target="_blank" rel="noopener"
                    aria-label="Instagram">
                     <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -27,7 +43,7 @@
                     </svg>
                 </a>
 
-                {{-- Facebook (link) --}}
+                {{-- Facebook --}}
                 <a class="gx-social-btn" href="https://www.facebook.com/genixprinting5" target="_blank" rel="noopener"
                    aria-label="Facebook">
                     <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -50,9 +66,8 @@
 
 <style>
 /* ===== Footer ===== */
-.gx-footer{
-    padding: 18px 0 26px;
-}
+.gx-footer{ padding: 18px 0 26px; }
+
 .gx-footer-bar{
     display:flex;
     align-items:center;
@@ -69,25 +84,42 @@
     -webkit-backdrop-filter: blur(12px);
 }
 
-/* Brand */
-.gx-footer-brand{
+/* Left Contact (phone + email) */
+.gx-footer-contact{
     display:flex;
-    align-items:baseline;
-    gap: 10px;
+    flex-direction: column;
+    gap: 6px;
     user-select:none;
 }
-.gx-footer-name{
-    font-weight: 1000;
-    letter-spacing: -0.02em;
-    color: #0f172a;
-    font-size: 18px;
-}
-.gx-footer-tag{
+.gx-contact-row{
+    display:inline-flex;
+    align-items:center;
+    gap: 10px;
+    text-decoration:none;
+    color: rgba(15,23,42,.88);
     font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: .18em;
-    color: rgba(15,23,42,.55);
-    font-size: 12px;
+    letter-spacing: -0.01em;
+}
+.gx-contact-row:hover{ color: rgba(15,23,42,.98); }
+
+.gx-ci{
+    width: 36px;
+    height: 36px;
+    border-radius: 14px;
+    border: 1px solid rgba(15,23,42,.12);
+    background: rgba(255,255,255,.75);
+    display:grid;
+    place-items:center;
+    box-shadow: 0 12px 28px rgba(2,6,23,.06);
+}
+.gx-ci svg{
+    width: 18px;
+    height: 18px;
+    fill: rgba(15,23,42,.88);
+}
+.gx-contact-text{
+    font-size: 18px;
+    font-weight: 900;
 }
 
 /* Social */
@@ -139,6 +171,6 @@
         width: 100%;
         justify-content: flex-end;
     }
+    .gx-contact-text{ font-size: 16px; }
 }
 </style>
-{{-- resources/views/partials/footer.blade.php --}}

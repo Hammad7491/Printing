@@ -218,8 +218,8 @@
 
 /* avatar circle */
 .gx-review-avatar{
-    width: 44px;
-    height: 44px;
+    width: 37px;
+    height: 37px;
     border-radius: 999px;
     background:
         radial-gradient(120% 120% at 30% 20%, rgba(245,158,11,.20), transparent 58%),
@@ -232,21 +232,21 @@
     overflow:hidden;
 }
 .gx-review-img{
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
     object-fit: cover;
     display:block;
 }
-.gx-review-ic{ width: 22px; height: 22px; fill: rgba(15,23,42,.60); }
+.gx-review-ic{ width: 20px; height: 20px; fill: rgba(15,23,42,.60); }
 
 /* stars under avatar */
 .gx-stars{ display:flex; gap: 2px; line-height: 1; }
-.gx-star{ font-size: 13px; color: rgba(245,158,11,.95); }
+.gx-star{ font-size: 10px; color: rgba(245,158,11,.95); }
 
 /* rating line */
 .gx-review-text{
-    font-weight: 800;
-    font-size: 10.5px;
+    font-weight: 700;
+    font-size: 9.5px;
     color: rgba(15,23,42,.72);
     line-height: 1;
 }
