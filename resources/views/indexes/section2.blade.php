@@ -4,12 +4,12 @@
 
         {{-- Top Tabs (ONLY UI pills, no filtering) --}}
         <div class="gx-tabs" aria-label="Category quick tabs">
-            <a class="gx-tab" href="#" role="button">Office Sign</a>
-            <a class="gx-tab" href="#" role="button">Home/Villa Sign</a>
-            <a class="gx-tab" href="#" role="button">Labels &amp; Tags</a>
-            <a class="gx-tab" href="#" role="button">Print &amp; Cut Sticker</a>
-            <a class="gx-tab" href="#" role="button">Stands &amp; Backdrops</a>
-            <a class="gx-tab" href="#" role="button">Flags &amp; Fabric</a>
+            <a class="gx-tab" href="#" role="button">Flag Sign</a>
+            <a class="gx-tab" href="#" role="button">Villa Sign</a>
+            <a class="gx-tab" href="#" role="button">Neon Sign</a>
+            <a class="gx-tab" href="#" role="button">Name &amp; Board Sign</a>
+            <a class="gx-tab" href="#" role="button">Labels</a>
+            <a class="gx-tab" href="#" role="button">Print &amp; Cut Stickers</a>
         </div>
 
         <div class="gx-cats-grid">
@@ -104,38 +104,49 @@
 /* ===== Categories Section (Images) ===== */
 .gx-cats{ padding: 18px 0 36px; }
 
-/* ===== Top Tabs (ONLY) ===== */
+/* ===== Top Tabs (FULL WIDTH + nicer spacing) ===== */
 .gx-tabs{
     display:flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 10px;
-    border-radius: 18px;
+    flex-wrap: nowrap;          /* keep in one line on desktop */
+    gap: 14px;                  /* more gap between pills */
+    padding: 12px;
+    border-radius: 20px;
     border: 1px solid rgba(15,23,42,.10);
     background: rgba(255,255,255,.62);
     box-shadow: 0 18px 55px rgba(2,6,23,.08);
     margin-bottom: 14px;
+
+    overflow-x: auto;           /* if screen small, scroll */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
 }
+.gx-tabs::-webkit-scrollbar{ display:none; }
+
 .gx-tab{
+    flex: 1 1 0;                /* fill the whole row (removes right empty space) */
+    min-width: 170px;           /* keeps pills readable */
     text-decoration:none;
+
     display:inline-flex;
     align-items:center;
     justify-content:center;
 
-    padding: 10px 14px;
+    padding: 12px 16px;         /* more breathing */
     border-radius: 999px;
 
     font-weight: 950;
-    font-size: 13px;
-    color: rgba(15,23,42,.80);
+    font-size: 14px;
+    letter-spacing: .02em;      /* more spacing between letters */
+    color: rgba(15,23,42,.85);
     background: rgba(15,23,42,.08);
-    transition: transform .18s ease, background .18s ease, color .18s ease, box-shadow .18s ease;
+
+    transition: transform .18s ease, background .18s ease, color .18s ease;
     white-space: nowrap;
 }
 .gx-tab:hover{
     transform: translateY(-1px);
     background: rgba(225,29,72,.10);
-    color: rgba(15,23,42,.92);
+    color: rgba(15,23,42,.95);
 }
 .gx-tab:active{ transform: translateY(0); }
 
@@ -249,12 +260,17 @@
     .gx-cats-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .gx-cat{ min-height: 330px; }
     .gx-cat-media{ height: 230px; }
+
+    .gx-tabs{ flex-wrap: nowrap; }
+    .gx-tab{ flex: 0 0 auto; min-width: 170px; }
 }
 @media (max-width: 520px){
     .gx-cats-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .gx-cat{ min-height: 300px; }
     .gx-cat-media{ height: 200px; }
     .gx-cat-title{ font-size: 14px; }
+
+    .gx-tab{ min-width: 150px; font-size: 13px; padding: 11px 14px; }
 }
 @media (max-width: 360px){
     .gx-cats-grid{ grid-template-columns: 1fr; }
