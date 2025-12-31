@@ -11,3 +11,19 @@ Route::get('/', [PagesController::class, 'indexes'])
 
 Route::get('/villa', [PagesController::class, 'villa'])
          ->name('villa');
+
+
+         Route::get('/neon', [PagesController::class, 'neon'])
+         ->name('neon');
+
+
+         Route::get('/name', [PagesController::class, 'name'])
+         ->name('name');
+
+
+ Route::get('/label', [PagesController::class, 'label'])
+         ->name('label');
+
+
+          Route::get('/print', [PagesController::class, 'print'])
+         ->name('print');

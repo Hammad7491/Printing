@@ -1,8 +1,31 @@
 {{-- resources/views/partials/header.blade.php --}}
+@php
+    /**
+     * ✅ Put the Canva review avatar image in ONE of these paths (public/...)
+     * Example: public/assets/images/review-avatar.png
+     */
+    $reviewAvatarCandidates = [
+        'assets/images/review-avatar.png',
+        'assets/images/review-avatar.jpg',
+        'assets/images/reviews/review-avatar.png',
+        'assets/images/reviews/review-avatar.jpg',
+        'assets/images/reviews/avatar.png',
+        'assets/images/reviews/avatar.jpg',
+    ];
+
+    $reviewAvatarUrl = null;
+    foreach ($reviewAvatarCandidates as $p) {
+        if (file_exists(public_path($p))) {
+            $reviewAvatarUrl = asset($p);
+            break;
+        }
+    }
+@endphp
+
 <header class="gx-header" id="gxHeader">
     <div class="gx-container">
         <div class="gx-bar">
-            {{-- Left: Logo --}}
+            {{-- Left: Logo (✅ +15% size) --}}
             <a href="{{ route('indexes') }}" class="gx-logo" aria-label="Genix Home">
                 <img
                     class="gx-logo-img"
@@ -36,24 +59,32 @@
                 </div>
             </form>
 
-            {{-- Right: Reviews --}}
+            {{-- Right: Reviews (✅ Avatar TOP, Stars BELOW like Canva reference) --}}
             <div class="gx-reviews" aria-label="Customer reviews summary">
-                <div class="gx-review-avatar" aria-hidden="true"></div>
+                <div class="gx-review-avatar" aria-hidden="true">
+                    @if($reviewAvatarUrl)
+                        <img class="gx-review-img" src="{{ $reviewAvatarUrl }}" alt="" loading="eager" decoding="async">
+                    @else
+                        {{-- fallback (if image not added yet) --}}
+                        <svg class="gx-review-ic" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 12.2c2.55 0 4.6-2.1 4.6-4.7S14.55 2.8 12 2.8 7.4 4.9 7.4 7.5s2.05 4.7 4.6 4.7Z"/>
+                            <path d="M4.2 20.6c.9-4 4.1-6.2 7.8-6.2s6.9 2.2 7.8 6.2c.1.5-.3 1-.8 1H5c-.5 0-.9-.5-.8-1Z"/>
+                        </svg>
+                    @endif
+                </div>
 
-                <div class="gx-review-meta">
-                    <div class="gx-stars" aria-label="5 out of 5 stars">
-                        <span class="gx-star" aria-hidden="true">★</span>
-                        <span class="gx-star" aria-hidden="true">★</span>
-                        <span class="gx-star" aria-hidden="true">★</span>
-                        <span class="gx-star" aria-hidden="true">★</span>
-                        <span class="gx-star" aria-hidden="true">★</span>
-                    </div>
+                <div class="gx-stars" aria-label="5 out of 5 stars">
+                    <span class="gx-star" aria-hidden="true">★</span>
+                    <span class="gx-star" aria-hidden="true">★</span>
+                    <span class="gx-star" aria-hidden="true">★</span>
+                    <span class="gx-star" aria-hidden="true">★</span>
+                    <span class="gx-star" aria-hidden="true">★</span>
+                </div>
 
-                    <div class="gx-review-text">
-                        <span class="gx-score">5.0</span>
-                        <span class="gx-sep">•</span>
-                        <span class="gx-count">120+ reviews</span>
-                    </div>
+                <div class="gx-review-text">
+                    <span class="gx-score">5.0</span>
+                    <span class="gx-sep">•</span>
+                    <span class="gx-count">5+ reviews</span>
                 </div>
             </div>
         </div>
@@ -87,7 +118,7 @@
 .gx-container{
     max-width: var(--gx-max);
     margin: 0 auto;
-    padding: 12px 18px; /* a bit tighter */
+    padding: 12px 18px;
 }
 
 /* Header shell */
@@ -101,46 +132,39 @@
     border-bottom: 0;
 }
 
-/* No outer floating box */
+/* Layout */
 .gx-bar{
     display:grid;
     grid-template-columns: auto 1fr auto;
     align-items:center;
     gap: 12px;
     padding: 6px 0;
-    background: transparent;
-    border: 0;
-    box-shadow: none;
 }
 
-/* Logo */
-.gx-logo{
-    display:flex;
-    align-items:center;
-    text-decoration:none;
-    user-select:none;
-}
+/* ✅ Logo (+15%) */
+.gx-logo{ display:flex; align-items:center; text-decoration:none; user-select:none; }
 .gx-logo-img{
-    height: 62px;
+    height: 72px;           /* +15% */
     width: auto;
-    max-width: 260px;
+    max-width: 300px;
     display:block;
     object-fit: contain;
 }
 
-/* Search (smaller + smarter) */
+/* ✅ Search (smaller height + smart) */
 .gx-search{
     margin: 0;
     width: 100%;
-    max-width: 390px;            /* ✅ slightly narrower on desktop */
+    max-width: 390px;
     justify-self: center;
 }
 .gx-search-wrap{
+    height: 44px;                 /* ✅ fixed compact height */
     display:flex;
     align-items:center;
     gap: 8px;
 
-    padding: 6px 8px;            /* ✅ smaller height */
+    padding: 4px 4px 4px 12px;    /* ✅ smaller + clean */
     border-radius: 999px;
     background: rgba(255,255,255,.92);
     border: 1px solid var(--gx-border);
@@ -154,22 +178,23 @@
 }
 .gx-search-input{
     flex: 1;
+    min-width: 0;
+    height: 100%;
     border: 0;
     outline: none;
-    font-size: 13.5px;           /* ✅ slightly smaller */
+    font-size: 13.5px;
     font-weight: 600;
     color: var(--gx-text);
     background: transparent;
-    padding: 4px 6px;            /* ✅ smaller height */
-    min-width: 0;                /* prevents overflow in flex */
+    padding: 0;                   /* height controlled by wrap */
 }
 .gx-search-input::placeholder{ color: rgba(100,116,139,.90); }
 
 .gx-search-iconbtn{
     border: 0;
     cursor: pointer;
-    width: 34px;                 /* ✅ smaller button */
-    height: 34px;
+    width: 36px;
+    height: 36px;
     border-radius: 999px;
     color: #fff;
     display:grid;
@@ -181,43 +206,59 @@
 .gx-search-iconbtn:hover{ transform: translateY(-1px); filter: brightness(1.03); }
 .gx-ico{ width: 16px; height: 16px; fill: currentColor; opacity: .95; }
 
-/* Reviews */
+/* ✅ Reviews: Avatar TOP, Stars BELOW (like reference) */
 .gx-reviews{
     display:flex;
+    flex-direction: column;     /* ✅ vertical stack */
     align-items:center;
-    gap: 10px;
-    padding: 0;
-    background: transparent;
-    border: 0;
-    box-shadow: none;
+    gap: 6px;
     white-space: nowrap;
+    padding: 0;
 }
+
+/* avatar circle */
 .gx-review-avatar{
-    width: 36px; height: 36px;
+    width: 44px;
+    height: 44px;
     border-radius: 999px;
     background:
-        radial-gradient(120% 120% at 30% 20%, rgba(245,158,11,.35), transparent 55%),
-        radial-gradient(120% 120% at 70% 60%, rgba(225,29,72,.25), transparent 55%),
-        rgba(15,23,42,.06);
+        radial-gradient(120% 120% at 30% 20%, rgba(245,158,11,.20), transparent 58%),
+        radial-gradient(120% 120% at 70% 70%, rgba(225,29,72,.18), transparent 58%),
+        rgba(15,23,42,.05);
+    border: 1px solid rgba(15,23,42,.10);
+    box-shadow: 0 12px 26px rgba(2,6,23,.10);
+    display:grid;
+    place-items:center;
+    overflow:hidden;
 }
-.gx-review-meta{ display:flex; flex-direction:column; gap: 2px; }
+.gx-review-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display:block;
+}
+.gx-review-ic{ width: 22px; height: 22px; fill: rgba(15,23,42,.60); }
+
+/* stars under avatar */
 .gx-stars{ display:flex; gap: 2px; line-height: 1; }
 .gx-star{ font-size: 13px; color: rgba(245,158,11,.95); }
+
+/* rating line */
 .gx-review-text{
     font-weight: 800;
-    font-size: 12.5px;
+    font-size: 10.5px;
     color: rgba(15,23,42,.72);
+    line-height: 1;
 }
 .gx-score{ color: var(--gx-text); }
-.gx-sep{ margin: 0 6px; color: rgba(15,23,42,.38); }
+.gx-sep{ margin: 0 0px; color: rgba(15,23,42,.38); }
 .gx-count{ color: rgba(15,23,42,.62); }
 
 /* Responsive */
 @media (max-width: 980px){
     .gx-search{ max-width: 340px; }
-    .gx-logo-img{ height: 56px; }
+    .gx-logo-img{ height: 65px; }
 }
-
 @media (max-width: 740px){
     .gx-bar{
         grid-template-columns: 1fr auto;
@@ -225,46 +266,35 @@
             "logo reviews"
             "search search";
         row-gap: 10px;
-        padding: 6px 0;
     }
     .gx-logo{ grid-area: logo; }
     .gx-reviews{ grid-area: reviews; justify-self: end; }
-
-    /* ✅ make search smaller in mobile mode */
     .gx-search{
         grid-area: search;
-        justify-self: center;     /* center it */
+        justify-self: center;
         width: 100%;
-        max-width: 520px;         /* not crazy wide on tablets */
+        max-width: 520px;
     }
 }
-
 @media (max-width: 420px){
     .gx-container{ padding: 10px 14px; }
 
     .gx-logo-img{
-        height: 46px;
-        max-width: 200px;
+        height: 53px;
+        max-width: 230px;
     }
 
-    /* ✅ extra compact search for small phones */
-    .gx-search{ max-width: 360px; }
+    /* extra compact search for small phones */
     .gx-search-wrap{
-        padding: 5px 7px;
-        gap: 8px;
+        height: 42px;
+        padding: 4px 4px 4px 10px;
         box-shadow: 0 10px 22px rgba(2,6,23,.06);
     }
-    .gx-search-input{
-        font-size: 13px;
-        padding: 4px 6px;
-    }
-    .gx-search-iconbtn{
-        width: 32px;
-        height: 32px;
-    }
+    .gx-search-input{ font-size: 13px; }
+    .gx-search-iconbtn{ width: 34px; height: 34px; }
     .gx-ico{ width: 15px; height: 15px; }
 
-    .gx-review-avatar{ width: 34px; height: 34px; }
+    .gx-review-avatar{ width: 40px; height: 40px; }
     .gx-review-text{ font-size: 12px; }
     .gx-star{ font-size: 12.5px; }
 }

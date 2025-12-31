@@ -30,7 +30,6 @@
                                  aria-label="{{ $i+1 }} of {{ count($banners) }}">
                             <img
                                 class="gx-banner"
-                                data-gx-banner="{{ $i }}"
                                 src="{{ $b['url'] }}"
                                 alt="{{ $b['alt'] }}"
                                 loading="{{ $i === 0 ? 'eager' : 'lazy' }}"
@@ -70,11 +69,13 @@
 <style>
 /* ===== Banner-only Hero ===== */
 .gx-hero{ padding: 18px 0 28px; }
+
+/* ✅ Less rounding (was 26px) */
 .gx-hero-shell{
-    border-radius: 26px;
+    border-radius: 16px;
     overflow: hidden;
     border: 1px solid rgba(15,23,42,.10);
-    background: rgba(255,255,255,.55);
+    background: #eef2f5; /* background visible when image uses contain */
     box-shadow: 0 18px 55px rgba(2,6,23,.10);
 }
 .gx-hero-slider{ position: relative; }
@@ -95,14 +96,14 @@
     margin: 0;
 }
 
-/* Banner image */
+/* ✅ Show FULL banner (no crop) */
 .gx-banner{
     width: 100%;
-    height: clamp(220px, 30vw, 440px);
+    height: clamp(210px, 28vw, 420px);
     display:block;
-    object-fit: cover;
-    object-position: center;
-    background: linear-gradient(135deg, rgba(2,6,23,.06), rgba(2,6,23,.02));
+    object-fit: contain;        /* ✅ was cover */
+    object-position: center;    /* ✅ keep centered */
+    background: #eef2f5;        /* ✅ fills empty sides nicely */
 }
 
 /* Controls */
@@ -112,9 +113,12 @@
     transform: translateY(-50%);
     width: 44px;
     height: 44px;
-    border-radius: 16px;
+
+    /* ✅ less rounding (was 16px) */
+    border-radius: 14px;
+
     border: 1px solid rgba(15,23,42,.12);
-    background: rgba(255,255,255,.78);
+    background: rgba(255,255,255,.82);
     box-shadow: 0 18px 40px rgba(2,6,23,.10);
     cursor:pointer;
     display:grid;
@@ -136,7 +140,7 @@
 .gx-dots{
     position:absolute;
     left: 0; right: 0;
-    bottom: 14px;
+    bottom: 12px;
     display:flex;
     justify-content:center;
     gap: 10px;
@@ -161,7 +165,8 @@
     .gx-next{ right: 10px; }
 }
 @media (max-width: 520px){
-    .gx-arrow{ width: 40px; height: 40px; border-radius: 14px; }
+    .gx-hero-shell{ border-radius: 14px; }
+    .gx-arrow{ width: 40px; height: 40px; border-radius: 12px; }
     .gx-dots{ bottom: 10px; }
 }
 

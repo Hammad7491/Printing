@@ -2,7 +2,7 @@
 <section class="gx-cats" id="gxCategories" aria-label="Categories">
     <div class="gx-container">
 
-        {{-- Top Tabs (ONLY UI pills, no filtering) --}}
+        {{-- ✅ Top Tabs (12 items) --}}
         <div class="gx-tabs" aria-label="Category quick tabs">
             <a class="gx-tab" href="#" role="button">Flag Sign</a>
             <a class="gx-tab" href="#" role="button">Villa Sign</a>
@@ -10,24 +10,32 @@
             <a class="gx-tab" href="#" role="button">Name &amp; Board Sign</a>
             <a class="gx-tab" href="#" role="button">Labels</a>
             <a class="gx-tab" href="#" role="button">Print &amp; Cut Stickers</a>
+            <a class="gx-tab" href="#" role="button">Cutouts &amp; Props</a>
+            <a class="gx-tab" href="#" role="button">Balloons &amp; Arches</a>
+            <a class="gx-tab" href="#" role="button">Fashion</a>
+            <a class="gx-tab" href="#" role="button">Metal Sticker</a>
+            <a class="gx-tab" href="#" role="button">Stands</a>
+            <a class="gx-tab" href="#" role="button">Reciptation Signs</a>
         </div>
 
+        {{-- ✅ 12 Categories (4 in a row) --}}
         <div class="gx-cats-grid">
-            {{-- Card 1 --}}
+
+            {{-- 1) Flag Sign --}}
             <article class="gx-cat">
                 <div class="gx-cat-media">
-                    <img class="gx-cat-img" src="{{ asset('assets/images/Flags/Flags.jpg') }}" alt="Flags Sign" loading="lazy">
+                    <img class="gx-cat-img" src="{{ asset('assets/images/Flags/Flags.jpg') }}" alt="Flag Sign" loading="lazy">
                     <div class="gx-cat-overlay" aria-hidden="true"></div>
                 </div>
                 <div class="gx-cat-body">
-                    <h3 class="gx-cat-title">Flags Sign</h3>
-                    <a class="gx-cat-link" href="#" aria-label="Open Flags Sign">
+                    <h3 class="gx-cat-title">Flag Sign</h3>
+                    <a class="gx-cat-link" href="#" aria-label="Open Flag Sign">
                         visit page of this item <span class="gx-chev" aria-hidden="true"></span>
                     </a>
                 </div>
             </article>
 
-            {{-- Card 2 (Villa link added) --}}
+            {{-- 2) Villa Sign --}}
             <article class="gx-cat">
                 <div class="gx-cat-media">
                     <img class="gx-cat-img" src="{{ asset('assets/images/VillaSign/Villa1.jpg') }}" alt="Villa Sign" loading="lazy">
@@ -41,7 +49,7 @@
                 </div>
             </article>
 
-            {{-- Card 3 --}}
+            {{-- 3) Neon Sign --}}
             <article class="gx-cat">
                 <div class="gx-cat-media">
                     <img class="gx-cat-img" src="{{ asset('assets/images/neon/Neon2.jpg') }}" alt="Neon Sign" loading="lazy">
@@ -49,13 +57,13 @@
                 </div>
                 <div class="gx-cat-body">
                     <h3 class="gx-cat-title">Neon Sign</h3>
-                    <a class="gx-cat-link" href="#" aria-label="Open Neon Sign">
+                    <a class="gx-cat-link" href="{{ route('neon') }}" aria-label="Open Neon Sign">
                         visit page of this item <span class="gx-chev" aria-hidden="true"></span>
                     </a>
                 </div>
             </article>
 
-            {{-- Card 4 --}}
+            {{-- 4) Name & Board Sign --}}
             <article class="gx-cat">
                 <div class="gx-cat-media">
                     <img class="gx-cat-img" src="{{ asset('assets/images/Name/Name1.jpg') }}" alt="Name & Board Sign" loading="lazy">
@@ -63,13 +71,13 @@
                 </div>
                 <div class="gx-cat-body">
                     <h3 class="gx-cat-title">Name &amp; Board Sign</h3>
-                    <a class="gx-cat-link" href="#" aria-label="Open Name & Board Sign">
+                    <a class="gx-cat-link" href="{{ route('name') }}" aria-label="Open Name & Board Sign">
                         visit page of this item <span class="gx-chev" aria-hidden="true"></span>
                     </a>
                 </div>
             </article>
 
-            {{-- Card 5 --}}
+            {{-- 5) Labels --}}
             <article class="gx-cat">
                 <div class="gx-cat-media">
                     <img class="gx-cat-img" src="{{ asset('assets/images/Labels/Label4.jpg') }}" alt="Labels" loading="lazy">
@@ -77,13 +85,13 @@
                 </div>
                 <div class="gx-cat-body">
                     <h3 class="gx-cat-title">Labels</h3>
-                    <a class="gx-cat-link" href="#" aria-label="Open Labels">
+                    <a class="gx-cat-link" href="{{ route('label') }}" aria-label="Open Labels">
                         visit page of this item <span class="gx-chev" aria-hidden="true"></span>
                     </a>
                 </div>
             </article>
 
-            {{-- Card 6 --}}
+            {{-- 6) Print & Cut Stickers --}}
             <article class="gx-cat">
                 <div class="gx-cat-media">
                     <img class="gx-cat-img" src="{{ asset('assets/images/Print/Print2.jpg') }}" alt="Print & Cut Stickers" loading="lazy">
@@ -91,69 +99,159 @@
                 </div>
                 <div class="gx-cat-body">
                     <h3 class="gx-cat-title">Print &amp; Cut Stickers</h3>
-                    <a class="gx-cat-link" href="#" aria-label="Open Print & Cut Stickers">
+                    <a class="gx-cat-link" href="{{ route('print') }}" aria-label="Open Print & Cut Stickers">
                         visit page of this item <span class="gx-chev" aria-hidden="true"></span>
                     </a>
                 </div>
             </article>
+
+            {{-- ✅ New 6 categories (placeholders images: replace later) --}}
+
+            {{-- 7) Cutouts & Props --}}
+            <article class="gx-cat">
+                <div class="gx-cat-media">
+                    <img class="gx-cat-img" src="{{ asset('assets/images/Flags/Flags.jpg') }}" alt="Cutouts & Props" loading="lazy">
+                    <div class="gx-cat-overlay" aria-hidden="true"></div>
+                </div>
+                <div class="gx-cat-body">
+                    <h3 class="gx-cat-title">Cutouts &amp; Props</h3>
+                    <a class="gx-cat-link" href="#" aria-label="Open Cutouts & Props">
+                        visit page of this item <span class="gx-chev" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </article>
+
+            {{-- 8) Balloons & Arches --}}
+            <article class="gx-cat">
+                <div class="gx-cat-media">
+                    <img class="gx-cat-img" src="{{ asset('assets/images/Labels/Label4.jpg') }}" alt="Balloons & Arches" loading="lazy">
+                    <div class="gx-cat-overlay" aria-hidden="true"></div>
+                </div>
+                <div class="gx-cat-body">
+                    <h3 class="gx-cat-title">Balloons &amp; Arches</h3>
+                    <a class="gx-cat-link" href="#" aria-label="Open Balloons & Arches">
+                        visit page of this item <span class="gx-chev" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </article>
+
+            {{-- 9) Fashion --}}
+            <article class="gx-cat">
+                <div class="gx-cat-media">
+                    <img class="gx-cat-img" src="{{ asset('assets/images/Name/Name1.jpg') }}" alt="Fashion" loading="lazy">
+                    <div class="gx-cat-overlay" aria-hidden="true"></div>
+                </div>
+                <div class="gx-cat-body">
+                    <h3 class="gx-cat-title">Fashion</h3>
+                    <a class="gx-cat-link" href="#" aria-label="Open Fashion">
+                        visit page of this item <span class="gx-chev" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </article>
+
+            {{-- 10) Metal Sticker --}}
+            <article class="gx-cat">
+                <div class="gx-cat-media">
+                    <img class="gx-cat-img" src="{{ asset('assets/images/Print/Print2.jpg') }}" alt="Metal Sticker" loading="lazy">
+                    <div class="gx-cat-overlay" aria-hidden="true"></div>
+                </div>
+                <div class="gx-cat-body">
+                    <h3 class="gx-cat-title">Metal Sticker</h3>
+                    <a class="gx-cat-link" href="#" aria-label="Open Metal Sticker">
+                        visit page of this item <span class="gx-chev" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </article>
+
+            {{-- 11) Stands --}}
+            <article class="gx-cat">
+                <div class="gx-cat-media">
+                    <img class="gx-cat-img" src="{{ asset('assets/images/neon/Neon2.jpg') }}" alt="Stands" loading="lazy">
+                    <div class="gx-cat-overlay" aria-hidden="true"></div>
+                </div>
+                <div class="gx-cat-body">
+                    <h3 class="gx-cat-title">Stands</h3>
+                    <a class="gx-cat-link" href="#" aria-label="Open Stands">
+                        visit page of this item <span class="gx-chev" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </article>
+
+            {{-- 12) Reciptation Signs --}}
+            <article class="gx-cat">
+                <div class="gx-cat-media">
+                    <img class="gx-cat-img" src="{{ asset('assets/images/reception/reception.jpg') }}" alt="Reciptation Signs" loading="lazy">
+                    <div class="gx-cat-overlay" aria-hidden="true"></div>
+                </div>
+                <div class="gx-cat-body">
+                    <h3 class="gx-cat-title">Reciptation Signs</h3>
+                    <a class="gx-cat-link" href="#" aria-label="Open Reciptation Signs">
+                        visit page of this item <span class="gx-chev" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </article>
+
         </div>
     </div>
 </section>
 
 <style>
-/* ===== Categories Section (Images) ===== */
+/* ===== Categories Section ===== */
 .gx-cats{ padding: 18px 0 36px; }
 
-/* ===== Top Tabs (FULL WIDTH + nicer spacing) ===== */
+/* Tabs container: NO background rounded box */
 .gx-tabs{
     display:flex;
-    flex-wrap: nowrap;          /* keep in one line on desktop */
-    gap: 14px;                  /* more gap between pills */
-    padding: 12px;
-    border-radius: 20px;
-    border: 1px solid rgba(15,23,42,.10);
-    background: rgba(255,255,255,.62);
-    box-shadow: 0 18px 55px rgba(2,6,23,.08);
+    flex-wrap: nowrap;
+    gap: 12px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
     margin-bottom: 14px;
 
-    overflow-x: auto;           /* if screen small, scroll */
+    overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
 }
 .gx-tabs::-webkit-scrollbar{ display:none; }
 
+/* Tabs: corners (not pills) */
 .gx-tab{
-    flex: 1 1 0;                /* fill the whole row (removes right empty space) */
-    min-width: 170px;           /* keeps pills readable */
+    flex: 0 0 auto;
+    min-width: 170px;
     text-decoration:none;
 
     display:inline-flex;
     align-items:center;
     justify-content:center;
 
-    padding: 12px 16px;         /* more breathing */
-    border-radius: 999px;
+    padding: 12px 16px;
+
+    border-radius: 10px;
+    border: 1px solid rgba(15,23,42,.10);
+    background: rgba(15,23,42,.06);
 
     font-weight: 950;
     font-size: 14px;
-    letter-spacing: .02em;      /* more spacing between letters */
+    letter-spacing: .02em;
     color: rgba(15,23,42,.85);
-    background: rgba(15,23,42,.08);
 
-    transition: transform .18s ease, background .18s ease, color .18s ease;
+    transition: transform .18s ease, background .18s ease, border-color .18s ease, color .18s ease;
     white-space: nowrap;
 }
 .gx-tab:hover{
     transform: translateY(-1px);
-    background: rgba(225,29,72,.10);
+    background: rgba(225,29,72,.08);
+    border-color: rgba(225,29,72,.18);
     color: rgba(15,23,42,.95);
 }
 .gx-tab:active{ transform: translateY(0); }
 
-/* Grid */
+/* ✅ Grid: 4 in a row */
 .gx-cats-grid{
     display:grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr)); /* ✅ 4 columns */
     gap: 14px;
 }
 
@@ -167,7 +265,7 @@
     transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
     display:flex;
     flex-direction:column;
-    min-height: 340px;
+    min-height: 320px;
 }
 .gx-cat:hover{
     transform: translateY(-3px);
@@ -178,7 +276,7 @@
 /* Image area */
 .gx-cat-media{
     position: relative;
-    height: 240px;
+    height: 210px;
     background: rgba(15,23,42,.04);
     overflow:hidden;
 }
@@ -209,13 +307,22 @@
     gap: 8px;
     margin-top: auto;
 }
+
+/* Title text: NO background box */
 .gx-cat-title{
     margin: 0;
-    font-size: 16px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+
+    font-size: 15px;
     font-weight: 1000;
     color: #e11d48;
     letter-spacing: -0.01em;
 }
+
 .gx-cat-link{
     border: 0;
     background: transparent;
@@ -256,21 +363,20 @@
 }
 
 /* Responsive */
-@media (max-width: 900px){
-    .gx-cats-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .gx-cat{ min-height: 330px; }
-    .gx-cat-media{ height: 230px; }
-
-    .gx-tabs{ flex-wrap: nowrap; }
-    .gx-tab{ flex: 0 0 auto; min-width: 170px; }
+@media (max-width: 1100px){
+    .gx-cats-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
-@media (max-width: 520px){
+@media (max-width: 900px){
     .gx-cats-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .gx-cat{ min-height: 300px; }
     .gx-cat-media{ height: 200px; }
+}
+@media (max-width: 520px){
+    .gx-cats-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .gx-cat-media{ height: 185px; }
     .gx-cat-title{ font-size: 14px; }
 
-    .gx-tab{ min-width: 150px; font-size: 13px; padding: 11px 14px; }
+    .gx-tab{ min-width: 150px; font-size: 13px; padding: 11px 14px; border-radius: 9px; }
 }
 @media (max-width: 360px){
     .gx-cats-grid{ grid-template-columns: 1fr; }
