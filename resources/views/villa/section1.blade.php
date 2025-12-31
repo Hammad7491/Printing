@@ -10,6 +10,7 @@
                         src="{{ asset('assets/images/VillaSign/Villa9.jpg') }}"
                         alt="Villa Sign"
                         loading="lazy"
+                        decoding="async"
                     />
                 </div>
             </div>
@@ -23,50 +24,41 @@
                     </p>
                 </div>
 
-                {{-- Tabs --}}
-                <div class="gx-tabs" data-gx-tabs>
-                    <div class="gx-tablist" role="tablist" aria-label="Product details tabs">
-                        <button class="gx-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="gxTabAbout" id="gxTabBtnAbout">
-                            About
-                        </button>
-                        <button class="gx-tab" type="button" role="tab" aria-selected="false" aria-controls="gxTabSpecs" id="gxTabBtnSpecs">
-                            Specifications
-                        </button>
+                {{-- About then Specifications (NO tabs) --}}
+                <div class="gx-details">
+                    {{-- About --}}
+                    <div class="gx-section">
+                        <h2 class="gx-sec-title">About</h2>
+                        <p class="gx-sec-text">
+                            Perfect for villas, home entrances, gates, and building numbers. Designed to look premium
+                            and stay durable in outdoor conditions.
+                        </p>
+
+                        <ul class="gx-bullets">
+                            <li>Weather-resistant finish</li>
+                            <li>Clean edges &amp; professional mounting</li>
+                            <li>Custom sizes &amp; colors available</li>
+                        </ul>
                     </div>
 
-                    <div class="gx-tabpanes">
-                        {{-- About --}}
-                        <div class="gx-pane is-active" role="tabpanel" id="gxTabAbout" aria-labelledby="gxTabBtnAbout">
-                            <h3 class="gx-block-title">Villa Sign</h3>
-                            <p class="gx-text">
-                                Perfect for villas, home entrances, gates, and building numbers. Designed to look premium
-                                and stay durable in outdoor conditions.
-                            </p>
+                    {{-- Specifications --}}
+                    <div class="gx-section gx-section--specs">
+                        <h2 class="gx-sec-title">Specifications</h2>
 
-                            <ul class="gx-list">
-                                <li>Weather-resistant finish</li>
-                                <li>Clean edges &amp; professional mounting</li>
-                                <li>Custom sizes &amp; colors available</li>
-                            </ul>
-                        </div>
+                        <div class="gx-specrows" role="list">
+                            <div class="gx-specrow" role="listitem">
+                                <div class="gx-spec-k">Basic Materials:</div>
+                                <div class="gx-spec-v">Acrylic, Aluminum, Stainless Steel, ACP, Forex</div>
+                            </div>
 
-                        {{-- Specifications --}}
-                        <div class="gx-pane" role="tabpanel" id="gxTabSpecs" aria-labelledby="gxTabBtnSpecs" hidden>
-                            <h3 class="gx-block-title">Specifications</h3>
+                            <div class="gx-specrow" role="listitem">
+                                <div class="gx-spec-k">Supporting Material:</div>
+                                <div class="gx-spec-v">PVC Vinyl Sticker, Transformer, Wiring, Silicon Glue, Double Sided Tape, Screws</div>
+                            </div>
 
-                            <div class="gx-specs">
-                                <div class="gx-spec">
-                                    <div class="gx-spec-k">Basic Materials</div>
-                                    <div class="gx-spec-v">Acrylic, Aluminum, Stainless Steel, ACP, Forex</div>
-                                </div>
-                                <div class="gx-spec">
-                                    <div class="gx-spec-k">Supporting Material</div>
-                                    <div class="gx-spec-v">PVC Vinyl Sticker, Transformer, Wiring, Silicon Glue, Double Sided Tape, Screws</div>
-                                </div>
-                                <div class="gx-spec">
-                                    <div class="gx-spec-k">Options</div>
-                                    <div class="gx-spec-v">3D Letters, LED Backlight (optional), Matte/Gloss finishing</div>
-                                </div>
+                            <div class="gx-specrow" role="listitem">
+                                <div class="gx-spec-k">Options:</div>
+                                <div class="gx-spec-v">3D Letters, LED Backlight (optional), Matte/Gloss finishing</div>
                             </div>
                         </div>
                     </div>
@@ -97,157 +89,166 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* ===== Product Detail (Clean + Professional) ===== */
-.gx-prod{ padding: 26px 0 44px; }
+/* ===== Product Detail (match image height + remove floating look) ===== */
+.gx-prod{ padding: 18px 0 28px; }
 
 /* layout */
 .gx-prod-wrap{
     display:grid;
     grid-template-columns: 1.15fr .85fr;
-    gap: 22px;
-    align-items:start;
+    gap: 18px;
+    align-items: stretch; /* ✅ make right column stretch to image height */
 }
 
-/* left image (no border, clean shadow) */
+/* left image: keep nice, but lighter shadow (less floating) */
 .gx-prod-media{
-    border-radius: 26px;
+    border-radius: 24px;
     overflow:hidden;
     background: #fff;
-    box-shadow: 0 18px 60px rgba(2,6,23,.10);
+    box-shadow: 0 10px 26px rgba(2,6,23,.08);
+    height: 520px; /* ✅ shared height */
 }
 .gx-prod-img{
     width:100%;
-    height: 560px;
+    height: 100%;
     display:block;
     object-fit: cover;
-    transform: scale(1);
 }
 
-/* right card (no heavy borders) */
+/* right content: remove floating => no big shadow, add soft border */
 .gx-prod-right{
-    border-radius: 26px;
+    height: 520px;                 /* ✅ equal to image height */
+    overflow: hidden;              /* ✅ stop extra length */
+    border-radius: 24px;
     background: #fff;
-    box-shadow: 0 18px 60px rgba(2,6,23,.08);
-    padding: 18px 18px 20px;
+    border: 1px solid rgba(15,23,42,.08);
+    box-shadow: none;              /* ✅ removed floating shadow */
+    padding: 16px 16px 14px;
+    display:flex;
+    flex-direction:column;
 }
 
-/* heading */
+/* heading (smaller + clean) */
 .gx-prod-title{
-    margin: 0 0 6px;
-    font-weight: 800;
+    margin: 0 0 4px;
+    font-weight: 900;
     letter-spacing: -0.02em;
     color: #0f172a;
-    font-size: clamp(22px, 2.4vw, 34px);
+    font-size: 26px;
     line-height: 1.15;
 }
 .gx-prod-sub{
     margin: 0;
     color: rgba(15,23,42,.62);
-    font-weight: 500;
-    line-height: 1.65;
-    font-size: 14px;
-}
-
-/* tabs (simple pills) */
-.gx-tabs{ margin-top: 16px; }
-
-.gx-tablist{
-    display:flex;
-    gap: 10px;
-    padding: 6px;
-    border-radius: 999px;
-    background: rgba(15,23,42,.05);
-}
-.gx-tab{
-    flex: 1 1 auto;
-    appearance:none;
-    border: 0;
-    background: transparent;
-    border-radius: 999px;
-    padding: 11px 12px;
     font-weight: 600;
-    cursor:pointer;
-    color: rgba(15,23,42,.78);
-    transition: background .18s ease, color .18s ease, transform .18s ease;
-}
-.gx-tab:hover{ transform: translateY(-1px); background: rgba(255,255,255,.70); }
-.gx-tab.is-active{
-    color: #0f172a;
-    background: #fff;
-    box-shadow: 0 12px 30px rgba(2,6,23,.08);
+    line-height: 1.55;
+    font-size: 12.5px; /* ✅ smaller */
 }
 
-/* pane */
-.gx-tabpanes{ margin-top: 12px; }
-.gx-pane{
-    border-radius: 18px;
-    background: rgba(15,23,42,.03);
-    padding: 14px 14px 12px;
+/* content area scroll if needed (keeps height equal) */
+.gx-details{
+    margin-top: 10px;
+    flex: 1 1 auto;        /* ✅ take remaining height */
+    overflow: auto;        /* ✅ if content long, scroll inside */
+    padding-right: 6px;    /* small room for scrollbar */
 }
-.gx-pane[hidden]{ display:none; }
+.gx-details::-webkit-scrollbar{ width: 8px; }
+.gx-details::-webkit-scrollbar-thumb{
+    background: rgba(15,23,42,.12);
+    border-radius: 999px;
+}
+.gx-details::-webkit-scrollbar-track{ background: transparent; }
 
-.gx-block-title{
+/* sections */
+.gx-section{ padding: 10px 0 6px; }
+.gx-section--specs{ padding-top: 8px; }
+
+/* titles */
+.gx-sec-title{
     margin: 0 0 8px;
-    font-weight: 700;
+    font-weight: 900;
     color: #0f172a;
-    letter-spacing: -0.01em;
-    font-size: 15px;
+    font-size: 15px;       /* ✅ smaller */
+    position: relative;
+    padding-bottom: 8px;
 }
-.gx-text{
-    margin: 0 0 10px;
+.gx-sec-title::after{
+    content:"";
+    position:absolute;
+    left: 0;
+    bottom: 0;
+    width: 44px;           /* ✅ shorter underline */
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #f97316 0%, #e11d48 70%, #f59e0b 120%);
+}
+
+/* about text */
+.gx-sec-text{
+    margin: 0 0 8px;
     color: rgba(15,23,42,.70);
-    font-weight: 450;
-    line-height: 1.75;
-    font-size: 13px;
+    font-weight: 550;
+    line-height: 1.7;
+    font-size: 12.5px; /* ✅ smaller */
 }
-.gx-list{
+
+/* bullets */
+.gx-bullets{
     margin: 0;
     padding-left: 18px;
     color: rgba(15,23,42,.70);
-    font-weight: 500;
-    line-height: 1.85;
-    font-size: 13px;
+    font-weight: 650;
+    line-height: 1.8;
+    font-size: 12.5px; /* ✅ smaller */
 }
+.gx-bullets li{ margin: 3px 0; }
 
-/* specs (clean blocks) */
-.gx-specs{ display:grid; gap: 10px; }
-.gx-spec{
-    border-radius: 14px;
-    background: #fff;
-    box-shadow: 0 10px 26px rgba(2,6,23,.06);
-    padding: 10px 12px;
+/* specs */
+.gx-specrows{
+    display:grid;
+    gap: 10px;
+    margin-top: 2px;
 }
+.gx-specrow{
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(15,23,42,.08);
+}
+.gx-specrow:last-child{ border-bottom: 0; }
+
 .gx-spec-k{
-    font-weight: 700;
+    font-weight: 900;
     color: #0f172a;
-    font-size: 12.5px;
-    margin-bottom: 4px;
+    font-size: 12px;   /* ✅ smaller */
+    margin-bottom: 3px;
 }
 .gx-spec-v{
     color: rgba(15,23,42,.70);
-    font-weight: 450;
-    font-size: 12.5px;
+    font-weight: 550;
+    font-size: 12px;   /* ✅ smaller */
     line-height: 1.6;
 }
 
-/* CTA */
+/* CTA (fixed at bottom, compact) */
 .gx-prod-cta{
-    margin-top: 16px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(15,23,42,.08);
     display:flex;
     align-items:center;
-    gap: 12px;
+    gap: 10px;
     flex-wrap: wrap;
 }
 .gx-order{
     appearance:none;
     border: 0;
     cursor:pointer;
-    padding: 12px 18px;
+    padding: 11px 16px;     /* ✅ smaller */
     border-radius: 999px;
-    font-weight: 700;
+    font-weight: 900;
+    font-size: 14px;        /* ✅ smaller */
     color: #fff;
     background: linear-gradient(135deg, #e11d48 0%, #f97316 55%, #f59e0b 120%);
-    box-shadow: 0 16px 36px rgba(225,29,72,.18);
+    box-shadow: 0 12px 26px rgba(225,29,72,.18);
     transition: transform .18s ease, filter .18s ease;
 }
 .gx-order:hover{ transform: translateY(-1px); filter: brightness(1.03); }
@@ -258,53 +259,27 @@
     align-items:center;
     gap: 8px;
     color: rgba(15,23,42,.62);
-    font-weight: 500;
-    font-size: 12px;
+    font-weight: 650;
+    font-size: 11.5px; /* ✅ smaller */
 }
 .gx-dot{
-    width: 10px; height: 10px;
+    width: 9px; height: 9px;
     border-radius: 999px;
     background: linear-gradient(135deg, #e11d48, #f59e0b);
-    box-shadow: 0 10px 20px rgba(225,29,72,.14);
+    box-shadow: 0 10px 18px rgba(225,29,72,.12);
 }
 
 /* ===== Responsive ===== */
 @media (max-width: 980px){
     .gx-prod-wrap{ grid-template-columns: 1fr; }
-    .gx-prod-img{ height: 440px; }
+    .gx-prod-media{ height: 420px; }
+    .gx-prod-right{ height: auto; }   /* ✅ on mobile, allow natural height */
+    .gx-details{ overflow: visible; padding-right: 0; }
 }
 @media (max-width: 520px){
-    .gx-prod-right{ padding: 16px; }
-    .gx-tablist{ border-radius: 18px; padding: 8px; }
-    .gx-tab{ padding: 10px 12px; }
-    .gx-prod-img{ height: 340px; }
+    .gx-prod-media{ height: 320px; border-radius: 20px; }
+    .gx-prod-right{ border-radius: 20px; padding: 14px; }
     .gx-order{ width: 100%; text-align:center; }
     .gx-prod-note{ width: 100%; justify-content:center; }
 }
 </style>
-
-<script>
-(() => {
-    const root = document.querySelector('[data-gx-tabs]');
-    if (!root) return;
-
-    const tabs = Array.from(root.querySelectorAll('[role="tab"]'));
-    const panes = Array.from(root.querySelectorAll('[role="tabpanel"]'));
-
-    const activate = (btn) => {
-        tabs.forEach(t => {
-            const active = t === btn;
-            t.classList.toggle('is-active', active);
-            t.setAttribute('aria-selected', active ? 'true' : 'false');
-        });
-
-        panes.forEach(p => {
-            const shouldShow = p.id === btn.getAttribute('aria-controls');
-            p.hidden = !shouldShow;
-            p.classList.toggle('is-active', shouldShow);
-        });
-    };
-
-    tabs.forEach(btn => btn.addEventListener('click', () => activate(btn)));
-})();
-</script>
