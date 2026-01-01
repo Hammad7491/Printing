@@ -110,7 +110,7 @@
             {{-- 7) Cutouts & Props --}}
             <article class="gx-cat">
                 <div class="gx-cat-media">
-                    <img class="gx-cat-img" src="{{ asset('assets/images/Flags/Flags.jpg') }}" alt="Cutouts & Props" loading="lazy">
+                    <img class="gx-cat-img" src="{{ asset('assets/images/cutt/cut.png') }}" alt="Cutouts & Props" loading="lazy">
                     <div class="gx-cat-overlay" aria-hidden="true"></div>
                 </div>
                 <div class="gx-cat-body">
@@ -124,12 +124,12 @@
             {{-- 8) Balloons & Arches --}}
             <article class="gx-cat">
                 <div class="gx-cat-media">
-                    <img class="gx-cat-img" src="{{ asset('assets/images/Labels/Label4.jpg') }}" alt="Balloons & Arches" loading="lazy">
+                    <img class="gx-cat-img" src="{{ asset('assets/images/ballons/ballon.jpeg') }}" alt="Balloons & Arches" loading="lazy">
                     <div class="gx-cat-overlay" aria-hidden="true"></div>
                 </div>
                 <div class="gx-cat-body">
                     <h3 class="gx-cat-title">Balloons &amp; Arches</h3>
-                    <a class="gx-cat-link" href="#" aria-label="Open Balloons & Arches">
+                    <a class="gx-cat-link" href="{{ route('ballon') }}" aria-label="Open Balloons & Arches">
                         visit page of this item <span class="gx-chev" aria-hidden="true"></span>
                     </a>
                 </div>
@@ -143,7 +143,7 @@
                 </div>
                 <div class="gx-cat-body">
                     <h3 class="gx-cat-title">Flags</h3>
-                    <a class="gx-cat-link" href="#" aria-label="Open Flags">
+                    <a class="gx-cat-link" href="{{ route('flag') }}" aria-label="Open Flags">
                         visit page of this item <span class="gx-chev" aria-hidden="true"></span>
                     </a>
                 </div>
@@ -180,12 +180,12 @@
             {{-- 12) Stands --}}
             <article class="gx-cat">
                 <div class="gx-cat-media">
-                    <img class="gx-cat-img" src="{{ asset('assets/images/neon/Neon2.jpg') }}" alt="Stands" loading="lazy">
+                    <img class="gx-cat-img" src="{{ asset('assets/images/stands/stand1.jpeg') }}" alt="Stands" loading="lazy">
                     <div class="gx-cat-overlay" aria-hidden="true"></div>
                 </div>
                 <div class="gx-cat-body">
                     <h3 class="gx-cat-title">Stands</h3>
-                    <a class="gx-cat-link" href="#" aria-label="Open Stands">
+                    <a class="gx-cat-link" href="{{ route('stand') }}" aria-label="Open Stands">
                         visit page of this item <span class="gx-chev" aria-hidden="true"></span>
                     </a>
                 </div>
@@ -199,7 +199,7 @@
 /* ===== Categories Section ===== */
 .gx-cats{ padding: 18px 0 36px; }
 
-/* Tabs container: NO background rounded box */
+/* Tabs container */
 .gx-tabs{
     display:flex;
     flex-wrap: nowrap;
@@ -216,7 +216,7 @@
 }
 .gx-tabs::-webkit-scrollbar{ display:none; }
 
-/* Tabs: corners (not pills) */
+/* Tabs */
 .gx-tab{
     flex: 0 0 auto;
     min-width: 170px;
@@ -265,7 +265,10 @@
     transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
     display:flex;
     flex-direction:column;
-    min-height: 320px;
+
+    /* ✅ FIX: remove extra empty space on ALL screens */
+    min-height: 0;              /* was creating big blank space */
+    height: auto;
 }
 .gx-cat:hover{
     transform: translateY(-3px);
@@ -304,25 +307,23 @@
     padding: 12px 14px 14px;
     display:flex;
     flex-direction:column;
-    gap: 8px;
-    margin-top: auto;
+    gap: 6px;
+
+    /* ✅ FIX: don't push content down */
+    margin-top: 0;             /* was "auto" which created blank area */
 }
 
-/* Title text: NO background box */
+/* Title */
 .gx-cat-title{
     margin: 0;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    box-shadow: none;
-    border-radius: 0;
-
     font-size: 15px;
     font-weight: 1000;
     color: #e11d48;
     letter-spacing: -0.01em;
+    line-height: 1.2;
 }
 
+/* Link */
 .gx-cat-link{
     border: 0;
     background: transparent;
@@ -341,6 +342,7 @@
     gap: 8px;
     width: fit-content;
     text-decoration: none;
+    line-height: 1.2;
 }
 .gx-cat-link:hover{ color: rgba(15,23,42,.92); }
 
@@ -351,6 +353,7 @@
     background: rgba(255,255,255,.75);
     position: relative;
     display:inline-block;
+    flex: 0 0 auto;
 }
 .gx-chev::before{
     content:"";
@@ -368,7 +371,6 @@
 }
 @media (max-width: 900px){
     .gx-cats-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .gx-cat{ min-height: 300px; }
     .gx-cat-media{ height: 200px; }
 }
 @media (max-width: 520px){
@@ -377,6 +379,9 @@
     .gx-cat-title{ font-size: 14px; }
 
     .gx-tab{ min-width: 150px; font-size: 13px; padding: 11px 14px; border-radius: 9px; }
+
+    /* ✅ EXTRA: prevent body from getting tall on mobile */
+    .gx-cat-body{ padding: 10px 12px 12px; gap: 5px; }
 }
 @media (max-width: 360px){
     .gx-cats-grid{ grid-template-columns: 1fr; }

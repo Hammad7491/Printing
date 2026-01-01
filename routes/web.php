@@ -27,3 +27,17 @@ Route::get('/villa', [PagesController::class, 'villa'])
 
           Route::get('/print', [PagesController::class, 'print'])
          ->name('print');
+
+
+
+
+          Route::get('/ballon', [PagesController::class, 'ballon'])
+         ->name('ballon');
+
+
+         Route::get('/flag', [PagesController::class, 'flag'])
+         ->name('flag');
+
+
+         Route::get('/stand', [PagesController::class, 'stand'])
+         ->name('stand');

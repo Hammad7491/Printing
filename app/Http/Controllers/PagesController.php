@@ -49,4 +49,22 @@ public function print()
 }
 
 
+public function ballon()
+{
+    return view('ballon');
+}
+
+
+
+public function flag()
+{
+    return view('flag');
+}
+
+
+public function stand()
+{
+    return view('stand');
+}
+
 }
