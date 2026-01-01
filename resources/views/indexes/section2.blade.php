@@ -2,96 +2,84 @@
 <section class="gx-cats" id="gxCategories" aria-label="Categories">
     <div class="gx-container">
 
-        {{-- ✅ Top Tabs (12 items) --}}
+        {{-- ✅ Top Tabs (12 items) - SAME SEQUENCE as your screenshot --}}
         <div class="gx-tabs" aria-label="Category quick tabs">
-            <a class="gx-tab" href="#" role="button">Flag Sign</a>
-            <a class="gx-tab" href="#" role="button">Villa Sign</a>
-            <a class="gx-tab" href="#" role="button">Neon Sign</a>
-            <a class="gx-tab" href="#" role="button">Name &amp; Board Sign</a>
-            <a class="gx-tab" href="#" role="button">Labels</a>
+            <a class="gx-tab" href="#" role="button">Name Plates</a>
+            <a class="gx-tab" href="#" role="button">Reception Sign</a>
+            <a class="gx-tab" href="#" role="button">Villa &amp; Home Sign</a>
+            <a class="gx-tab" href="#" role="button">Labels &amp; Tags</a>
+
             <a class="gx-tab" href="#" role="button">Print &amp; Cut Stickers</a>
+            <a class="gx-tab" href="#" role="button">Neon sign</a>
             <a class="gx-tab" href="#" role="button">Cutouts &amp; Props</a>
             <a class="gx-tab" href="#" role="button">Balloons &amp; Arches</a>
+
+            <a class="gx-tab" href="#" role="button">Flags</a>
             <a class="gx-tab" href="#" role="button">Fashion</a>
             <a class="gx-tab" href="#" role="button">Metal Sticker</a>
             <a class="gx-tab" href="#" role="button">Stands</a>
-            <a class="gx-tab" href="#" role="button">Reciptation Signs</a>
         </div>
 
-        {{-- ✅ 12 Categories (4 in a row) --}}
+        {{-- ✅ 12 Categories (4 in a row) - SAME SEQUENCE as your screenshot --}}
         <div class="gx-cats-grid">
 
-            {{-- 1) Flag Sign --}}
+            {{-- 1) Name Plates --}}
             <article class="gx-cat">
                 <div class="gx-cat-media">
-                    <img class="gx-cat-img" src="{{ asset('assets/images/Flags/Flags.jpg') }}" alt="Flag Sign" loading="lazy">
+                    <img class="gx-cat-img" src="{{ asset('assets/images/Name/Name1.jpg') }}" alt="Name Plates" loading="lazy">
                     <div class="gx-cat-overlay" aria-hidden="true"></div>
                 </div>
                 <div class="gx-cat-body">
-                    <h3 class="gx-cat-title">Flag Sign</h3>
-                    <a class="gx-cat-link" href="#" aria-label="Open Flag Sign">
+                    <h3 class="gx-cat-title">Name Plates</h3>
+                    <a class="gx-cat-link" href="{{ route('name') }}" aria-label="Open Name Plates">
                         visit page of this item <span class="gx-chev" aria-hidden="true"></span>
                     </a>
                 </div>
             </article>
 
-            {{-- 2) Villa Sign --}}
+            {{-- 2) Reception Sign --}}
             <article class="gx-cat">
                 <div class="gx-cat-media">
-                    <img class="gx-cat-img" src="{{ asset('assets/images/VillaSign/Villa1.jpg') }}" alt="Villa Sign" loading="lazy">
+                    <img class="gx-cat-img" src="{{ asset('assets/images/reception/reception.jpg') }}" alt="Reception Sign" loading="lazy">
                     <div class="gx-cat-overlay" aria-hidden="true"></div>
                 </div>
                 <div class="gx-cat-body">
-                    <h3 class="gx-cat-title">Villa Sign</h3>
-                    <a class="gx-cat-link" href="{{ route('villa') }}" aria-label="Open Villa Sign">
+                    <h3 class="gx-cat-title">Reception Sign</h3>
+                    <a class="gx-cat-link" href="#" aria-label="Open Reception Sign">
                         visit page of this item <span class="gx-chev" aria-hidden="true"></span>
                     </a>
                 </div>
             </article>
 
-            {{-- 3) Neon Sign --}}
+            {{-- 3) Villa & Home Sign --}}
             <article class="gx-cat">
                 <div class="gx-cat-media">
-                    <img class="gx-cat-img" src="{{ asset('assets/images/neon/Neon2.jpg') }}" alt="Neon Sign" loading="lazy">
+                    <img class="gx-cat-img" src="{{ asset('assets/images/VillaSign/Villa1.jpg') }}" alt="Villa & Home Sign" loading="lazy">
                     <div class="gx-cat-overlay" aria-hidden="true"></div>
                 </div>
                 <div class="gx-cat-body">
-                    <h3 class="gx-cat-title">Neon Sign</h3>
-                    <a class="gx-cat-link" href="{{ route('neon') }}" aria-label="Open Neon Sign">
+                    <h3 class="gx-cat-title">Villa &amp; Home Sign</h3>
+                    <a class="gx-cat-link" href="{{ route('villa') }}" aria-label="Open Villa & Home Sign">
                         visit page of this item <span class="gx-chev" aria-hidden="true"></span>
                     </a>
                 </div>
             </article>
 
-            {{-- 4) Name & Board Sign --}}
+            {{-- 4) Labels & Tags --}}
             <article class="gx-cat">
                 <div class="gx-cat-media">
-                    <img class="gx-cat-img" src="{{ asset('assets/images/Name/Name1.jpg') }}" alt="Name & Board Sign" loading="lazy">
+                    <img class="gx-cat-img" src="{{ asset('assets/images/Labels/Label4.jpg') }}" alt="Labels & Tags" loading="lazy">
                     <div class="gx-cat-overlay" aria-hidden="true"></div>
                 </div>
                 <div class="gx-cat-body">
-                    <h3 class="gx-cat-title">Name &amp; Board Sign</h3>
-                    <a class="gx-cat-link" href="{{ route('name') }}" aria-label="Open Name & Board Sign">
+                    <h3 class="gx-cat-title">Labels &amp; Tags</h3>
+                    <a class="gx-cat-link" href="{{ route('label') }}" aria-label="Open Labels & Tags">
                         visit page of this item <span class="gx-chev" aria-hidden="true"></span>
                     </a>
                 </div>
             </article>
 
-            {{-- 5) Labels --}}
-            <article class="gx-cat">
-                <div class="gx-cat-media">
-                    <img class="gx-cat-img" src="{{ asset('assets/images/Labels/Label4.jpg') }}" alt="Labels" loading="lazy">
-                    <div class="gx-cat-overlay" aria-hidden="true"></div>
-                </div>
-                <div class="gx-cat-body">
-                    <h3 class="gx-cat-title">Labels</h3>
-                    <a class="gx-cat-link" href="{{ route('label') }}" aria-label="Open Labels">
-                        visit page of this item <span class="gx-chev" aria-hidden="true"></span>
-                    </a>
-                </div>
-            </article>
-
-            {{-- 6) Print & Cut Stickers --}}
+            {{-- 5) Print & Cut Stickers --}}
             <article class="gx-cat">
                 <div class="gx-cat-media">
                     <img class="gx-cat-img" src="{{ asset('assets/images/Print/Print2.jpg') }}" alt="Print & Cut Stickers" loading="lazy">
@@ -105,7 +93,19 @@
                 </div>
             </article>
 
-            {{-- ✅ New 6 categories (placeholders images: replace later) --}}
+            {{-- 6) Neon sign --}}
+            <article class="gx-cat">
+                <div class="gx-cat-media">
+                    <img class="gx-cat-img" src="{{ asset('assets/images/neon/Neon2.jpg') }}" alt="Neon sign" loading="lazy">
+                    <div class="gx-cat-overlay" aria-hidden="true"></div>
+                </div>
+                <div class="gx-cat-body">
+                    <h3 class="gx-cat-title">Neon sign</h3>
+                    <a class="gx-cat-link" href="{{ route('neon') }}" aria-label="Open Neon sign">
+                        visit page of this item <span class="gx-chev" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </article>
 
             {{-- 7) Cutouts & Props --}}
             <article class="gx-cat">
@@ -135,10 +135,24 @@
                 </div>
             </article>
 
-            {{-- 9) Fashion --}}
+            {{-- 9) Flags --}}
             <article class="gx-cat">
                 <div class="gx-cat-media">
-                    <img class="gx-cat-img" src="{{ asset('assets/images/Name/Name1.jpg') }}" alt="Fashion" loading="lazy">
+                    <img class="gx-cat-img" src="{{ asset('assets/images/Flags/Flags.jpg') }}" alt="Flags" loading="lazy">
+                    <div class="gx-cat-overlay" aria-hidden="true"></div>
+                </div>
+                <div class="gx-cat-body">
+                    <h3 class="gx-cat-title">Flags</h3>
+                    <a class="gx-cat-link" href="#" aria-label="Open Flags">
+                        visit page of this item <span class="gx-chev" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </article>
+
+            {{-- 10) Fashion --}}
+            <article class="gx-cat">
+                <div class="gx-cat-media">
+                    <img class="gx-cat-img" src="{{ asset('assets/images/Name/Name2.jpg') }}" alt="Fashion" loading="lazy">
                     <div class="gx-cat-overlay" aria-hidden="true"></div>
                 </div>
                 <div class="gx-cat-body">
@@ -149,10 +163,10 @@
                 </div>
             </article>
 
-            {{-- 10) Metal Sticker --}}
+            {{-- 11) Metal Sticker --}}
             <article class="gx-cat">
                 <div class="gx-cat-media">
-                    <img class="gx-cat-img" src="{{ asset('assets/images/Print/Print2.jpg') }}" alt="Metal Sticker" loading="lazy">
+                    <img class="gx-cat-img" src="{{ asset('assets/images/Print/Print3.jpg') }}" alt="Metal Sticker" loading="lazy">
                     <div class="gx-cat-overlay" aria-hidden="true"></div>
                 </div>
                 <div class="gx-cat-body">
@@ -163,7 +177,7 @@
                 </div>
             </article>
 
-            {{-- 11) Stands --}}
+            {{-- 12) Stands --}}
             <article class="gx-cat">
                 <div class="gx-cat-media">
                     <img class="gx-cat-img" src="{{ asset('assets/images/neon/Neon2.jpg') }}" alt="Stands" loading="lazy">
@@ -172,20 +186,6 @@
                 <div class="gx-cat-body">
                     <h3 class="gx-cat-title">Stands</h3>
                     <a class="gx-cat-link" href="#" aria-label="Open Stands">
-                        visit page of this item <span class="gx-chev" aria-hidden="true"></span>
-                    </a>
-                </div>
-            </article>
-
-            {{-- 12) Reciptation Signs --}}
-            <article class="gx-cat">
-                <div class="gx-cat-media">
-                    <img class="gx-cat-img" src="{{ asset('assets/images/reception/reception.jpg') }}" alt="Reciptation Signs" loading="lazy">
-                    <div class="gx-cat-overlay" aria-hidden="true"></div>
-                </div>
-                <div class="gx-cat-body">
-                    <h3 class="gx-cat-title">Reciptation Signs</h3>
-                    <a class="gx-cat-link" href="#" aria-label="Open Reciptation Signs">
                         visit page of this item <span class="gx-chev" aria-hidden="true"></span>
                     </a>
                 </div>
@@ -251,7 +251,7 @@
 /* ✅ Grid: 4 in a row */
 .gx-cats-grid{
     display:grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr)); /* ✅ 4 columns */
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 14px;
 }
 
