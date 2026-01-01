@@ -72,7 +72,7 @@
 
 /* ✅ Less rounding (was 26px) */
 .gx-hero-shell{
-    border-radius: 16px;
+    border-radius: 10px;
     overflow: hidden;
     border: 1px solid rgba(15,23,42,.10);
     background: #eef2f5; /* background visible when image uses contain */

@@ -2,25 +2,27 @@
 <section class="gx-cats" id="gxCategories" aria-label="Categories">
     <div class="gx-container">
 
-        {{-- ✅ Top Tabs (12 items) - SAME SEQUENCE as your screenshot --}}
-        <div class="gx-tabs" aria-label="Category quick tabs">
-            <a class="gx-tab" href="#" role="button">Name Plates</a>
-            <a class="gx-tab" href="#" role="button">Reception Sign</a>
-            <a class="gx-tab" href="#" role="button">Villa &amp; Home Sign</a>
-            <a class="gx-tab" href="#" role="button">Labels &amp; Tags</a>
+        {{-- ✅ Top Tabs (12 items) - SAME SEQUENCE --}}
+        <div class="gx-tabs-wrap" aria-label="Category quick tabs wrap">
+            <div class="gx-tabs" aria-label="Category quick tabs">
+                <a class="gx-tab" href="#" role="button">Name Plates</a>
+                <a class="gx-tab" href="#" role="button">Reception Sign</a>
+                <a class="gx-tab" href="#" role="button">Villa &amp; Home Sign</a>
+                <a class="gx-tab" href="#" role="button">Labels &amp; Tags</a>
 
-            <a class="gx-tab" href="#" role="button">Print &amp; Cut Stickers</a>
-            <a class="gx-tab" href="#" role="button">Neon sign</a>
-            <a class="gx-tab" href="#" role="button">Cutouts &amp; Props</a>
-            <a class="gx-tab" href="#" role="button">Balloons &amp; Arches</a>
+                <a class="gx-tab" href="#" role="button">Print &amp; Cut Stickers</a>
+                <a class="gx-tab" href="#" role="button">Neon sign</a>
+                <a class="gx-tab" href="#" role="button">Cutouts &amp; Props</a>
+                <a class="gx-tab" href="#" role="button">Balloons &amp; Arches</a>
 
-            <a class="gx-tab" href="#" role="button">Flags</a>
-            <a class="gx-tab" href="#" role="button">Fashion</a>
-            <a class="gx-tab" href="#" role="button">Metal Sticker</a>
-            <a class="gx-tab" href="#" role="button">Stands</a>
+                <a class="gx-tab" href="#" role="button">Flags</a>
+                <a class="gx-tab" href="#" role="button">Fashion</a>
+                <a class="gx-tab" href="#" role="button">Metal Sticker</a>
+                <a class="gx-tab" href="#" role="button">Stands</a>
+            </div>
         </div>
 
-        {{-- ✅ 12 Categories (4 in a row) - SAME SEQUENCE as your screenshot --}}
+        {{-- ✅ 12 Categories (4 in a row) --}}
         <div class="gx-cats-grid">
 
             {{-- 1) Name Plates --}}
@@ -199,24 +201,28 @@
 /* ===== Categories Section ===== */
 .gx-cats{ padding: 18px 0 36px; }
 
+/* ✅ single gray border around the whole tabs bar (NO gray background on tabs/buttons) */
+.gx-tabs-wrap{
+    border: 1px solid rgba(15,23,42,.16);
+    background: transparent;   /* ✅ removed gray background */
+    padding: 10px;
+    margin-bottom: 14px;
+}
+
 /* Tabs container */
 .gx-tabs{
     display:flex;
     flex-wrap: nowrap;
     gap: 12px;
     padding: 0;
-    border: 0;
     background: transparent;
-    box-shadow: none;
-    margin-bottom: 14px;
-
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
 }
 .gx-tabs::-webkit-scrollbar{ display:none; }
 
-/* Tabs */
+/* ✅ Tabs: NO border + NO gray background + sharp corners */
 .gx-tab{
     flex: 0 0 auto;
     min-width: 170px;
@@ -228,23 +234,21 @@
 
     padding: 12px 16px;
 
-    border-radius: 10px;
-    border: 1px solid rgba(15,23,42,.10);
-    background: rgba(15,23,42,.06);
+    border: 0;
+    border-radius: 0;
+    background: transparent; /* ✅ removed gray background */
 
     font-weight: 950;
     font-size: 14px;
     letter-spacing: .02em;
     color: rgba(15,23,42,.85);
 
-    transition: transform .18s ease, background .18s ease, border-color .18s ease, color .18s ease;
+    transition: transform .18s ease, color .18s ease;
     white-space: nowrap;
 }
 .gx-tab:hover{
     transform: translateY(-1px);
-    background: rgba(225,29,72,.08);
-    border-color: rgba(225,29,72,.18);
-    color: rgba(15,23,42,.95);
+    color: rgba(15,23,42,.98);
 }
 .gx-tab:active{ transform: translateY(0); }
 
@@ -255,9 +259,9 @@
     gap: 14px;
 }
 
-/* Card */
+/* ✅ Card: sharp corners (NO rounded) */
 .gx-cat{
-    border-radius: 22px;
+    border-radius: 0; /* ✅ sharp corners */
     border: 1px solid rgba(15,23,42,.10);
     background: rgba(255,255,255,.60);
     box-shadow: 0 18px 55px rgba(2,6,23,.08);
@@ -265,9 +269,7 @@
     transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
     display:flex;
     flex-direction:column;
-
-    /* ✅ FIX: remove extra empty space on ALL screens */
-    min-height: 0;              /* was creating big blank space */
+    min-height: 0;
     height: auto;
 }
 .gx-cat:hover{
@@ -276,20 +278,22 @@
     box-shadow: 0 28px 70px rgba(2,6,23,.12);
 }
 
-/* Image area */
+/* Image area (sharp corners) */
 .gx-cat-media{
     position: relative;
     height: 210px;
     background: rgba(15,23,42,.04);
     overflow:hidden;
+    border-radius: 0;
 }
 .gx-cat-img{
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display:block;
+    border-radius: 0;
     transform: scale(1);
     transition: transform .45s cubic-bezier(.22,.8,.24,1), filter .45s cubic-bezier(.22,.8,.24,1);
-    display:block;
 }
 .gx-cat:hover .gx-cat-img{
     transform: scale(1.06);
@@ -308,12 +312,8 @@
     display:flex;
     flex-direction:column;
     gap: 6px;
-
-    /* ✅ FIX: don't push content down */
-    margin-top: 0;             /* was "auto" which created blank area */
+    margin-top: 0;
 }
-
-/* Title */
 .gx-cat-title{
     margin: 0;
     font-size: 15px;
@@ -322,8 +322,6 @@
     letter-spacing: -0.01em;
     line-height: 1.2;
 }
-
-/* Link */
 .gx-cat-link{
     border: 0;
     background: transparent;
@@ -378,9 +376,9 @@
     .gx-cat-media{ height: 185px; }
     .gx-cat-title{ font-size: 14px; }
 
-    .gx-tab{ min-width: 150px; font-size: 13px; padding: 11px 14px; border-radius: 9px; }
+    .gx-tab{ min-width: 150px; font-size: 13px; padding: 11px 14px; }
+    .gx-tabs-wrap{ padding: 8px; }
 
-    /* ✅ EXTRA: prevent body from getting tall on mobile */
     .gx-cat-body{ padding: 10px 12px 12px; gap: 5px; }
 }
 @media (max-width: 360px){

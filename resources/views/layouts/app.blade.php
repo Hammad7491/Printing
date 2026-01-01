@@ -13,12 +13,14 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 		<meta name="author" content="Jthemes"/>	
-		<meta name="description" content="Treko - Software & Startup Premium Landing Page Template"/>
-		<meta name="keywords" content="Responsive, HTML5 Template, Jthemes, Landing, Startup, Software, Business, Company, Creative, Freelancers">	
+		<meta name="description" content="Genix Printing – Premium signage, custom prints, labels, stickers, neon signs, flags, stands, and event branding in UAE." />
+<meta name="keywords" content="Genix Printing, signage UAE, villa sign, home sign, reception sign, neon sign UAE, name plates, labels and tags, print and cut stickers, cutouts and props, balloons and arches, flags printing, stands, custom printing, acrylic signage, LED neon, sticker printing, branding, Dubai printing, UAE printing" />
+	
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 				
   		<!-- SITE TITLE -->
-		<title>Treko - Software & Startup Premium Landing Page Template</title>
+		<title>Genix Printing | Signage, Neon Signs, Labels & Stickers in UAE</title>
+
 							<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <!-- Animate.css for flip animations -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -51,7 +53,8 @@
 
 
 		<!-- FAVICON AND TOUCH ICONS -->
-		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="{{ asset('assets/images/logo.png') }}" type="image/png">
+
 		<link rel="icon" href="images/favicon.ico" type="image/x-icon">
 		<link rel="apple-touch-icon" sizes="152x152" href="images/apple-touch-icon-152x152.png">
 		<link rel="apple-touch-icon" sizes="120x120" href="images/apple-touch-icon-120x120.png">
