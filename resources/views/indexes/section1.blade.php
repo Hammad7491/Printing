@@ -68,7 +68,7 @@
 
 <style>
 /* ===== Banner-only Hero ===== */
-.gx-hero{ padding: 18px 0 28px; }
+
 
 /* ✅ Less rounding (was 26px) */
 .gx-hero-shell{
