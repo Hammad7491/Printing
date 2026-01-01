@@ -384,6 +384,6 @@
     .gx-cat-body{ padding: 10px 12px 12px; gap: 5px; }
 }
 @media (max-width: 360px){
-    
+    .gx-cats-grid{ grid-template-columns: 1fr; }
 }
 </style>
