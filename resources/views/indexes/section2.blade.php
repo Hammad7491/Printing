@@ -152,7 +152,7 @@
             {{-- 10) Fashion --}}
             <article class="gx-cat">
                 <div class="gx-cat-media">
-                    <img class="gx-cat-img" src="{{ asset('assets/images/Name/Name2.jpg') }}" alt="Fashion" loading="lazy">
+                    <img class="gx-cat-img" src="{{ asset('assets/images/fashion/fashion3.jpeg') }}" alt="Fashion" loading="lazy">
                     <div class="gx-cat-overlay" aria-hidden="true"></div>
                 </div>
                 <div class="gx-cat-body">
