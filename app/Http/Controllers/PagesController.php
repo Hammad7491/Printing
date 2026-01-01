@@ -67,4 +67,10 @@ public function stand()
     return view('stand');
 }
 
+
+public function fashion()
+{
+    return view('fashion');
+}
+
 }

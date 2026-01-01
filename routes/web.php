@@ -41,3 +41,8 @@ Route::get('/villa', [PagesController::class, 'villa'])
 
          Route::get('/stand', [PagesController::class, 'stand'])
          ->name('stand');
+
+
+
+            Route::get('/fashion', [PagesController::class, 'fashion'])
+         ->name('fashion');

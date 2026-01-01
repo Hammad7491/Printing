@@ -157,7 +157,7 @@
                 </div>
                 <div class="gx-cat-body">
                     <h3 class="gx-cat-title">Fashion</h3>
-                    <a class="gx-cat-link" href="#" aria-label="Open Fashion">
+                    <a class="gx-cat-link" href="{{ route('fashion') }}" aria-label="Open Fashion">
                         visit page of this item <span class="gx-chev" aria-hidden="true"></span>
                     </a>
                 </div>
@@ -166,7 +166,7 @@
             {{-- 11) Metal Sticker --}}
             <article class="gx-cat">
                 <div class="gx-cat-media">
-                    <img class="gx-cat-img" src="{{ asset('assets/images/Print/Print3.jpg') }}" alt="Metal Sticker" loading="lazy">
+                    <img class="gx-cat-img" src="{{ asset('assets/images/metal/metal.png') }}" alt="Metal Sticker" loading="lazy">
                     <div class="gx-cat-overlay" aria-hidden="true"></div>
                 </div>
                 <div class="gx-cat-body">
