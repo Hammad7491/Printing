@@ -229,6 +229,6 @@
     root.addEventListener('focusout', start);
 
     setActive(0);
-    start();
+    
 })();
 </script>
