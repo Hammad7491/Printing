@@ -228,7 +228,7 @@
     root.addEventListener('focusin', stop);
     root.addEventListener('focusout', start);
 
-    
+    setActive(0);
     start();
 })();
 </script>
