@@ -273,7 +273,7 @@
         grid-area: search;
         justify-self: center;
         width: 100%;
-        
+        max-width: 520px;
     }
 }
 @media (max-width: 420px){
