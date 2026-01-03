@@ -3,28 +3,36 @@
     <div class="gx-container">
         <div class="gx-footer-bar">
 
-            {{-- Left: Phone + Email (replace Genix printing) --}}
+            {{-- Left: Phone + Email --}}
             <div class="gx-footer-contact" aria-label="Contact info">
+
                 <a class="gx-contact-row" href="tel:+971561247035" aria-label="Call +971 56 124 7035">
                     <span class="gx-ci" aria-hidden="true">
                         <svg viewBox="0 0 24 24">
                             <path d="M6.6 10.8c1.5 3 3.7 5.2 6.7 6.7l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.2.7 3.4.7.7 0 1.3.6 1.3 1.3V21c0 .7-.6 1.3-1.3 1.3C10.5 22.3 1.7 13.5 1.7 2.9 1.7 2.2 2.3 1.6 3 1.6h3.6c.7 0 1.3.6 1.3 1.3 0 1.2.2 2.4.7 3.4.1.4 0 .9-.2 1.2l-1.8 2.3Z"/>
                         </svg>
                     </span>
-                    <span class="gx-contact-text">+971 56 124 7035</span>
+                    <span class="gx-contact-text">
+                        <span class="gx-contact-label">Call us</span>
+                        <span class="gx-contact-value">+971 56 124 7035</span>
+                    </span>
                 </a>
 
-                <a class="gx-contact-row" href="mailto:info@genixxprinting.com" aria-label="Email genixprinting@gmail.com">
+                <a class="gx-contact-row" href="mailto:genixprinting@gmail.com" aria-label="Email genixprinting@gmail.com">
                     <span class="gx-ci" aria-hidden="true">
                         <svg viewBox="0 0 24 24">
                             <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"/>
                         </svg>
                     </span>
-                    <span class="gx-contact-text">genixprinting@gmail.com</span>
+                    <span class="gx-contact-text">
+                        <span class="gx-contact-label">Email</span>
+                        <span class="gx-contact-value">genixprinting@gmail.com</span>
+                    </span>
                 </a>
+
             </div>
 
-            {{-- Right: Social icons (WITH links) --}}
+            {{-- Right: Social icons --}}
             <div class="gx-footer-social" aria-label="Social media">
 
                 {{-- WhatsApp --}}
@@ -72,7 +80,7 @@
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap: 14px;
+    gap: 16px;
 
     padding: 14px 16px;
     border-radius: 22px;
@@ -84,42 +92,68 @@
     -webkit-backdrop-filter: blur(12px);
 }
 
-/* Left Contact (phone + email) */
+/* Left Contact */
 .gx-footer-contact{
     display:flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 10px;
     user-select:none;
 }
+
 .gx-contact-row{
-    display:inline-flex;
+    display:flex;
     align-items:center;
-    gap: 10px;
+    gap: 12px;
     text-decoration:none;
-    color: rgba(15,23,42,.88);
-    font-weight: 900;
-    letter-spacing: -0.01em;
+
+    padding: 6px 10px;
+    border-radius: 16px;
+    transition: background .18s ease, transform .18s ease;
 }
-.gx-contact-row:hover{ color: rgba(15,23,42,.98); }
+.gx-contact-row:hover{
+    background: rgba(15,23,42,.04);
+    transform: translateY(-1px);
+}
 
 .gx-ci{
-    width: 36px;
-    height: 36px;
-    border-radius: 14px;
-    border: 1px solid rgba(15,23,42,.12);
-    background: rgba(255,255,255,.75);
+    width: 42px;
+    height: 42px;
+    border-radius: 16px;
+    border: 1px solid rgba(15,23,42,.10);
+    background: rgba(255,255,255,.85);
     display:grid;
     place-items:center;
-    box-shadow: 0 12px 28px rgba(2,6,23,.06);
+    box-shadow: 0 10px 22px rgba(2,6,23,.06);
+    flex: 0 0 auto;
 }
 .gx-ci svg{
     width: 18px;
     height: 18px;
-    fill: rgba(15,23,42,.88);
+    fill: rgba(15,23,42,.78);
 }
+
+/* ✅ Make it LIGHT + smart (not bold) */
 .gx-contact-text{
+    display:flex;
+    flex-direction: column;
+    line-height: 1.15;
+    gap: 3px;
+}
+.gx-contact-label{
+    font-size: 12px;
+    font-weight: 600;                 /* ✅ lighter */
+    color: rgba(15,23,42,.50);
+    letter-spacing: .08em;            /* ✅ more premium */
+    text-transform: uppercase;
+}
+.gx-contact-value{
     font-size: 18px;
-    font-weight: 900;
+    font-weight: 600;                 /* ✅ not bold */
+    color: rgba(15,23,42,.82);
+    letter-spacing: 0;                /* ✅ normal */
+}
+.gx-contact-row:hover .gx-contact-value{
+    color: rgba(15,23,42,.95);
 }
 
 /* Social */
@@ -128,8 +162,6 @@
     align-items:center;
     gap: 10px;
 }
-
-/* keep same class, just allow <a> too */
 .gx-social-btn{
     appearance:none;
     border: 1px solid rgba(15,23,42,.12);
@@ -153,7 +185,6 @@
     box-shadow: 0 18px 40px rgba(2,6,23,.10);
 }
 .gx-social-btn:active{ transform: translateY(0px); }
-
 .gx-social-btn svg{
     width: 20px;
     height: 20px;
@@ -171,6 +202,6 @@
         width: 100%;
         justify-content: flex-end;
     }
-    .gx-contact-text{ font-size: 16px; }
+    .gx-contact-value{ font-size: 16px; }
 }
 </style>
