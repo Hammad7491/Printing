@@ -144,7 +144,7 @@
 /* ✅ Logo (+15%) */
 .gx-logo{ display:flex; align-items:center; text-decoration:none; user-select:none; }
 .gx-logo-img{
-    height: 72px;           /* +15% */
+    height: 92px;           /* +15% */
     width: auto;
     max-width: 300px;
     display:block;

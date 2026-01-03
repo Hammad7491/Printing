@@ -53,7 +53,7 @@
 
 
 		<!-- FAVICON AND TOUCH ICONS -->
-		<link rel="shortcut icon" href="{{ asset('assets/images/logo.png') }}" type="image/png">
+		<link rel="shortcut icon" href="{{ asset('assets/images/genex.png') }}" type="image/png">
 
 		<link rel="icon" href="images/favicon.ico" type="image/x-icon">
 		<link rel="apple-touch-icon" sizes="152x152" href="images/apple-touch-icon-152x152.png">
