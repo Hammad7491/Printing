@@ -19,5 +19,5 @@
     <script src="{{ asset('assets/js/custom.js') }}"></script>
 
     <script>
-        new WOW().init();
+       
     </script>
