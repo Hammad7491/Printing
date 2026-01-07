@@ -3,31 +3,25 @@
     <div class="gx-container">
         <div class="gx-footer-bar">
 
-            {{-- Left: Phone + Email --}}
+            {{-- Left: Phone + Email (simple like reference) --}}
             <div class="gx-footer-contact" aria-label="Contact info">
 
                 <a class="gx-contact-row" href="tel:+971561247035" aria-label="Call +971 56 124 7035">
                     <span class="gx-ci" aria-hidden="true">
-                        <svg viewBox="0 0 24 24">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M6.6 10.8c1.5 3 3.7 5.2 6.7 6.7l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.2.7 3.4.7.7 0 1.3.6 1.3 1.3V21c0 .7-.6 1.3-1.3 1.3C10.5 22.3 1.7 13.5 1.7 2.9 1.7 2.2 2.3 1.6 3 1.6h3.6c.7 0 1.3.6 1.3 1.3 0 1.2.2 2.4.7 3.4.1.4 0 .9-.2 1.2l-1.8 2.3Z"/>
                         </svg>
                     </span>
-                    <span class="gx-contact-text">
-                        <span class="gx-contact-label">Call us</span>
-                        <span class="gx-contact-value">+971 56 124 7035</span>
-                    </span>
+                    <span class="gx-contact-value">+971 56 124 7035</span>
                 </a>
 
                 <a class="gx-contact-row" href="mailto:genixprinting@gmail.com" aria-label="Email genixprinting@gmail.com">
                     <span class="gx-ci" aria-hidden="true">
-                        <svg viewBox="0 0 24 24">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"/>
                         </svg>
                     </span>
-                    <span class="gx-contact-text">
-                        <span class="gx-contact-label">Email</span>
-                        <span class="gx-contact-value">genixprinting@gmail.com</span>
-                    </span>
+                    <span class="gx-contact-value">genixprinting@gmail.com</span>
                 </a>
 
             </div>
@@ -92,71 +86,64 @@
     -webkit-backdrop-filter: blur(12px);
 }
 
-/* Left Contact */
+/* ✅ Simple contact like reference */
 .gx-footer-contact{
     display:flex;
-    flex-direction: column;
-    gap: 10px;
+    align-items:center;
+    gap: 18px;
+    flex-wrap: wrap;
     user-select:none;
 }
 
 .gx-contact-row{
-    display:flex;
+    display:inline-flex;
     align-items:center;
-    gap: 12px;
+    gap: 10px;
     text-decoration:none;
 
-    padding: 6px 10px;
-    border-radius: 16px;
-    transition: background .18s ease, transform .18s ease;
-}
-.gx-contact-row:hover{
-    background: rgba(15,23,42,.04);
-    transform: translateY(-1px);
+    padding: 0;                 /* ✅ no button feel */
+    border-radius: 0;           /* ✅ no rounded row */
+    background: transparent;     /* ✅ no hover bg */
+    transform: none;            /* ✅ no hover move */
+    transition: none;           /* ✅ remove hover effect */
 }
 
 .gx-ci{
-    width: 42px;
-    height: 42px;
-    border-radius: 16px;
-    border: 1px solid rgba(15,23,42,.10);
-    background: rgba(255,255,255,.85);
+    width: 18px;                /* ✅ small icon like reference */
+    height: 18px;
+    border: 0;                  /* ✅ no circle */
+    background: transparent;
+    box-shadow: none;
     display:grid;
     place-items:center;
-    box-shadow: 0 10px 22px rgba(2,6,23,.06);
     flex: 0 0 auto;
 }
 .gx-ci svg{
     width: 18px;
     height: 18px;
-    fill: rgba(15,23,42,.78);
+    fill: rgba(15,23,42,.70);   /* ✅ soft */
 }
 
-/* ✅ Make it LIGHT + smart (not bold) */
-.gx-contact-text{
-    display:flex;
-    flex-direction: column;
-    line-height: 1.15;
-    gap: 3px;
-}
-.gx-contact-label{
-    font-size: 12px;
-    font-weight: 600;                 /* ✅ lighter */
-    color: rgba(15,23,42,.50);
-    letter-spacing: .08em;            /* ✅ more premium */
-    text-transform: uppercase;
-}
+/* ✅ Font simple + decent */
 .gx-contact-value{
-    font-size: 18px;
-    font-weight: 600;                 /* ✅ not bold */
-    color: rgba(15,23,42,.82);
-    letter-spacing: 0;                /* ✅ normal */
-}
-.gx-contact-row:hover .gx-contact-value{
-    color: rgba(15,23,42,.95);
+    font-size: 14px;            /* ✅ smaller like reference */
+    font-weight: 500;           /* ✅ simple */
+    color: rgba(15,23,42,.78);  /* ✅ soft */
+    letter-spacing: 0;
+    line-height: 1;
 }
 
-/* Social */
+/* no hover changes for contact */
+.gx-contact-row:hover,
+.gx-contact-row:focus,
+.gx-contact-row:active{
+    background: transparent;
+    transform: none;
+    outline: none;
+}
+.gx-contact-row:hover .gx-contact-value{ color: rgba(15,23,42,.78); }
+
+/* Social (keep as it is) */
 .gx-footer-social{
     display:flex;
     align-items:center;
@@ -202,6 +189,6 @@
         width: 100%;
         justify-content: flex-end;
     }
-    .gx-contact-value{ font-size: 16px; }
+    .gx-footer-contact{ gap: 12px; }
 }
 </style>
