@@ -1,31 +1,9 @@
 {{-- resources/views/partials/header.blade.php --}}
-@php
-    /**
-     * ✅ Put the Canva review avatar image in ONE of these paths (public/...)
-     * Example: public/assets/images/review-avatar.png
-     */
-    $reviewAvatarCandidates = [
-        'assets/images/review-avatar.png',
-        'assets/images/review-avatar.jpg',
-        'assets/images/reviews/review-avatar.png',
-        'assets/images/reviews/review-avatar.jpg',
-        'assets/images/reviews/avatar.png',
-        'assets/images/reviews/avatar.jpg',
-    ];
-
-    $reviewAvatarUrl = null;
-    foreach ($reviewAvatarCandidates as $p) {
-        if (file_exists(public_path($p))) {
-            $reviewAvatarUrl = asset($p);
-            break;
-        }
-    }
-@endphp
-
 <header class="gx-header" id="gxHeader">
     <div class="gx-container">
         <div class="gx-bar">
-            {{-- Left: Logo (✅ +15% size) --}}
+
+            {{-- Left: Logo --}}
             <a href="{{ route('indexes') }}" class="gx-logo" aria-label="Genix Home">
                 <img
                     class="gx-logo-img"
@@ -36,7 +14,7 @@
                 />
             </a>
 
-            {{-- Center: Search --}}
+            {{-- Right: Search (moved to right side, reviews removed) --}}
             <form class="gx-search" action="{{ route('indexes') }}" method="GET" role="search" aria-label="Search products">
                 <label class="sr-only" for="gxSearchTop">Search</label>
 
@@ -59,34 +37,6 @@
                 </div>
             </form>
 
-            {{-- Right: Reviews (✅ Avatar TOP, Stars BELOW like Canva reference) --}}
-            <div class="gx-reviews" aria-label="Customer reviews summary">
-                <div class="gx-review-avatar" aria-hidden="true">
-                    @if($reviewAvatarUrl)
-                        <img class="gx-review-img" src="{{ $reviewAvatarUrl }}" alt="" loading="eager" decoding="async">
-                    @else
-                        {{-- fallback (if image not added yet) --}}
-                        <svg class="gx-review-ic" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M12 12.2c2.55 0 4.6-2.1 4.6-4.7S14.55 2.8 12 2.8 7.4 4.9 7.4 7.5s2.05 4.7 4.6 4.7Z"/>
-                            <path d="M4.2 20.6c.9-4 4.1-6.2 7.8-6.2s6.9 2.2 7.8 6.2c.1.5-.3 1-.8 1H5c-.5 0-.9-.5-.8-1Z"/>
-                        </svg>
-                    @endif
-                </div>
-
-                <div class="gx-stars" aria-label="5 out of 5 stars">
-                    <span class="gx-star" aria-hidden="true">★</span>
-                    <span class="gx-star" aria-hidden="true">★</span>
-                    <span class="gx-star" aria-hidden="true">★</span>
-                    <span class="gx-star" aria-hidden="true">★</span>
-                    <span class="gx-star" aria-hidden="true">★</span>
-                </div>
-
-                <div class="gx-review-text">
-                    <span class="gx-score">5.0</span>
-                    <span class="gx-sep">•</span>
-                    <span class="gx-count">5+ reviews</span>
-                </div>
-            </div>
         </div>
     </div>
 </header>
@@ -132,39 +82,41 @@
     border-bottom: 0;
 }
 
-/* Layout */
+/* ✅ Layout: Logo left, Search right */
 .gx-bar{
-    display:grid;
-    grid-template-columns: auto 1fr auto;
+    display:flex;
     align-items:center;
-    gap: 12px;
+    justify-content:space-between;
+    gap: 14px;
     padding: 6px 0;
+    flex-wrap: wrap; /* mobile wrap */
 }
 
-/* ✅ Logo (+15%) */
+/* Logo */
 .gx-logo{ display:flex; align-items:center; text-decoration:none; user-select:none; }
 .gx-logo-img{
-    height: 92px;           /* +15% */
+    height: 78px;
     width: auto;
     max-width: 300px;
     display:block;
     object-fit: contain;
 }
 
-/* ✅ Search (smaller height + smart) */
+/* ✅ Search on right */
 .gx-search{
     margin: 0;
-    width: 100%;
-    max-width: 390px;
-    justify-self: center;
+    width: min(420px, 100%);
+    margin-left: auto; /* pushes to right */
 }
+
+/* Search UI */
 .gx-search-wrap{
-    height: 44px;                 /* ✅ fixed compact height */
+    height: 44px;
     display:flex;
     align-items:center;
     gap: 8px;
 
-    padding: 4px 4px 4px 12px;    /* ✅ smaller + clean */
+    padding: 4px 4px 4px 12px;
     border-radius: 999px;
     background: rgba(255,255,255,.92);
     border: 1px solid var(--gx-border);
@@ -186,7 +138,7 @@
     font-weight: 600;
     color: var(--gx-text);
     background: transparent;
-    padding: 0;                   /* height controlled by wrap */
+    padding: 0;
 }
 .gx-search-input::placeholder{ color: rgba(100,116,139,.90); }
 
@@ -206,76 +158,21 @@
 .gx-search-iconbtn:hover{ transform: translateY(-1px); filter: brightness(1.03); }
 .gx-ico{ width: 16px; height: 16px; fill: currentColor; opacity: .95; }
 
-/* ✅ Reviews: Avatar TOP, Stars BELOW (like reference) */
-.gx-reviews{
-    display:flex;
-    flex-direction: column;     /* ✅ vertical stack */
-    align-items:center;
-    gap: 6px;
-    white-space: nowrap;
-    padding: 0;
-}
-
-/* avatar circle */
-.gx-review-avatar{
-    width: 37px;
-    height: 37px;
-    border-radius: 999px;
-    background:
-        radial-gradient(120% 120% at 30% 20%, rgba(245,158,11,.20), transparent 58%),
-        radial-gradient(120% 120% at 70% 70%, rgba(225,29,72,.18), transparent 58%),
-        rgba(15,23,42,.05);
-    border: 1px solid rgba(15,23,42,.10);
-    box-shadow: 0 12px 26px rgba(2,6,23,.10);
-    display:grid;
-    place-items:center;
-    overflow:hidden;
-}
-.gx-review-img{
-    width: 90%;
-    height: 90%;
-    object-fit: cover;
-    display:block;
-}
-.gx-review-ic{ width: 20px; height: 20px; fill: rgba(15,23,42,.60); }
-
-/* stars under avatar */
-.gx-stars{ display:flex; gap: 2px; line-height: 1; }
-.gx-star{ font-size: 10px; color: rgba(245,158,11,.95); }
-
-/* rating line */
-.gx-review-text{
-    font-weight: 700;
-    font-size: 9.5px;
-    color: rgba(15,23,42,.72);
-    line-height: 1;
-}
-.gx-score{ color: var(--gx-text); }
-.gx-sep{ margin: 0 0px; color: rgba(15,23,42,.38); }
-.gx-count{ color: rgba(15,23,42,.62); }
-
 /* Responsive */
 @media (max-width: 980px){
-    .gx-search{ max-width: 340px; }
+    .gx-search{ width: min(360px, 100%); }
     .gx-logo-img{ height: 65px; }
 }
+
+/* ✅ On small screens: logo top, search full width under it */
 @media (max-width: 740px){
-    .gx-bar{
-        grid-template-columns: 1fr auto;
-        grid-template-areas:
-            "logo reviews"
-            "search search";
-        row-gap: 10px;
-    }
-    .gx-logo{ grid-area: logo; }
-    .gx-reviews{ grid-area: reviews; justify-self: end; }
+    .gx-bar{ align-items: center; }
     .gx-search{
-        grid-area: search;
-        justify-self: center;
         width: 100%;
-        max-width: 520px;
+        margin-left: 0;
     }
 }
+
 @media (max-width: 420px){
     .gx-container{ padding: 10px 14px; }
 
@@ -284,7 +181,6 @@
         max-width: 230px;
     }
 
-    /* extra compact search for small phones */
     .gx-search-wrap{
         height: 42px;
         padding: 4px 4px 4px 10px;
@@ -293,9 +189,5 @@
     .gx-search-input{ font-size: 13px; }
     .gx-search-iconbtn{ width: 34px; height: 34px; }
     .gx-ico{ width: 15px; height: 15px; }
-
-    .gx-review-avatar{ width: 40px; height: 40px; }
-    .gx-review-text{ font-size: 12px; }
-    .gx-star{ font-size: 12.5px; }
 }
 </style>
