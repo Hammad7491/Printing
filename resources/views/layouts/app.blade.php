@@ -21,7 +21,7 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 		<!-- Font Awesome -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 		<!-- AOS (duplicate safe, but keep one) -->
 		<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
@@ -63,14 +63,13 @@
 		<!-- RESPONSIVE CSS -->
 		<link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet">
 
-		<!-- ✅ WhatsApp Floating Button Styles -->
+		<!-- ✅ WhatsApp Floating Button Styles (Bottom Right) -->
 		<style>
-			/* WhatsApp Floating Button (Right middle) */
+			/* WhatsApp Floating Button (Bottom Right) */
 			.gx-wa-float{
 				position: fixed;
 				right: 18px;
-				top: 50%;
-				transform: translateY(-50%);
+				bottom: 18px;
 				z-index: 9999;
 
 				width: 56px;
@@ -88,24 +87,24 @@
 				transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
 			}
 			.gx-wa-float:hover{
-				transform: translateY(-50%) scale(1.06);
+				transform: scale(1.06);
 				box-shadow: 0 18px 55px rgba(0,0,0,.22);
 				filter: brightness(1.02);
 			}
 			.gx-wa-float:active{
-				transform: translateY(-50%) scale(0.98);
+				transform: scale(0.98);
 			}
 			.gx-wa-float i{
 				font-size: 28px;
 				line-height: 1;
 			}
 
-			/* Optional small tooltip */
+			/* Tooltip (shows on hover) */
 			.gx-wa-tip{
 				position: absolute;
 				right: 66px;
-				top: 50%;
-				transform: translateY(-50%);
+				bottom: 50%;
+				transform: translateY(50%);
 				white-space: nowrap;
 
 				background: rgba(15,23,42,.92);
@@ -123,6 +122,7 @@
 			@media (max-width: 520px){
 				.gx-wa-float{
 					right: 14px;
+					bottom: 14px;
 					width: 52px;
 					height: 52px;
 				}
@@ -139,7 +139,7 @@
 			@include('layouts.footer')
 		</div>
 
-		<!-- ✅ WhatsApp Floating Button (Right middle) -->
+		<!-- ✅ WhatsApp Floating Button (Bottom Right) -->
 		<a
 			class="gx-wa-float"
 			href="https://wa.me/9715612470735"
@@ -176,12 +176,8 @@
 		</script>
 
 		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-		<script>
-			AOS.init();
-		</script>
 
-		<!-- AOS JS (keep only one init; this disables on mobile) -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+		<!-- AOS init (disable on mobile) -->
 		<script>
 			if (window.innerWidth >= 768) {
 				AOS.init();
